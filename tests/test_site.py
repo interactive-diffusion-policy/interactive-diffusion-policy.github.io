@@ -121,12 +121,22 @@ class PreviewTests(unittest.TestCase):
         self.assertIn("family=Google+Sans", html)
         self.assertIn('<h1 class="publication-title">Interactive Diffusion Policy</h1>', html)
         self.assertIn("--display:'Google Sans'", css)
-        self.assertNotIn("institution-lockup", html)
         self.assertIn('<nav class="footer-nav" aria-label="Page sections">', html)
         self.assertNotIn('class="site-nav"', html)
         self.assertNotIn("Submitted to IEEE Robotics and Automation Letters", html)
         self.assertNotIn("Awaiting review", html)
         self.assertIn("Coming soon.", html)
+
+    def test_title_block_logo_and_affiliation(self):
+        root = Path(__file__).resolve().parents[1]
+        html = (root / "public/index.html").read_text(encoding="utf-8")
+        logo = html.find('<img src="skku-robotics-innovatory-logo.png"')
+        self.assertGreater(logo, 0)
+        self.assertLess(logo, html.find('<h1 class="publication-title">'))
+        affiliation = re.search(r'<div class="publication-affiliation">(.*?)</div>', html, re.S)
+        self.assertIsNotNone(affiliation)
+        text = re.sub(r"<[^>]+>", "", affiliation.group(1)).replace("&nbsp;", " ")
+        self.assertEqual(text, "Department of Mechanical Engineering · Sungkyunkwan University")
 
     def test_title_block_links(self):
         root = Path(__file__).resolve().parents[1]
