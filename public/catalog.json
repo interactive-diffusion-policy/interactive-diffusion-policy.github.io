@@ -1,6 +1,22 @@
 {
-  "updated": "2026-10-12",
+  "updated": "2026-11-09",
   "assets": [
+    {
+      "id": "idp-human-interaction-highlight",
+      "aliases": [
+        "idp-human-interaction-highlight"
+      ],
+      "title": "Human-robot workspace interactions",
+      "kind": "video",
+      "category": "Rollouts & diagnostics",
+      "src": "assets/idp-human-interaction-highlight.mp4",
+      "thumbnail": "assets/idp-human-interaction-highlight-thumb.png",
+      "caption": "Two recorded encounters with people entering the robot's workspace.",
+      "file_sha256": "3a48a3c40ee25d0f42c8df9057535eff0f5b9a413d7df9dae22af31b8b0ef2d8",
+      "bytes": 9433130,
+      "sha256": "3a48a3c40ee25d0f42c8df9057535eff0f5b9a413d7df9dae22af31b8b0ef2d8",
+      "thumbnail_sha256": "bfa92c17ae082da20977cb88c329a80e527dba4116079cd72eb750bf57835af5"
+    },
     {
       "id": "idp-research-montage",
       "aliases": [

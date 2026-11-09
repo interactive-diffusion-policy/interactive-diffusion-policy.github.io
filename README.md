@@ -7,10 +7,8 @@ This repository contains the editable website and its selected figures and
 videos. It does **not** contain robot-control software, training datasets,
 checkpoints, the manuscript source, or internal correspondence.
 
-Authors, in the supplied submission-list order: Yeong Gwang Son, Hyunchang Kang,
-Youngbin Song, Hyunjoon Cho, and Hyouk Ryeol Choi. The site describes the paper
-as submitted to RA-L and awaiting review; submission-system identifiers are not
-included.
+Authors: Yeong Gwang Son, Hyunchang Kang, Youngbin Song, Hyunjoon Cho, and
+Hyouk Ryeol Choi.
 
 ## Local Preview
 
@@ -66,11 +64,13 @@ table is a transcription of the manuscript, not a new trial-level evaluation.
 Media preserve the distinction between autonomous execution and human-assisted
 data collection. Do not relabel one as the other.
 
-The 30.708-second home teaser uses two recorded trials. `tools/hero-video.json`
+The current highlight uses the two excerpts from the original recording shown
+in the two-event comparison, played sequentially without the comparison layout.
+The previous 30.708-second teaser uses two recorded trials. `tools/hero-video.json`
 preserves the source windows: DGB 3-20 s at 1x, DGB 32-48.3 s at 2x, and SAO
 33-44 s at 2x. Render with the local `ffmpeg-skill` `render.py` and review the
 result before updating the catalog. The full supplementary video remains under
-the teaser. The DGB/SAO comparison controls play separate recordings together;
+the highlight. The DGB/SAO comparison controls play separate recordings together;
 they do not imply paired starts or hardware time synchronization.
 
 The previous public paper-page route is being retired separately from this

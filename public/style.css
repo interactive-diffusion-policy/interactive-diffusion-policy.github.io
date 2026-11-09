@@ -51,12 +51,11 @@ h2.title{margin:0 0 1.5rem;font-size:1.5rem;line-height:1.5;letter-spacing:norma
 .institution-lockup{display:inline-flex;margin:0 auto 1.25rem;line-height:0}
 .institution-lockup:hover{opacity:.85}
 .institution-lockup img{width:min(320px,80vw);height:auto}
-.publication-title{max-width:var(--w);margin:0 auto;font-size:clamp(2rem,3.75vw,3rem);font-weight:400;line-height:1.5;letter-spacing:normal;color:var(--accent);text-wrap:balance;overflow-wrap:break-word}
+.publication-title{max-width:var(--w);margin:0 auto .4rem;font-size:clamp(2.375rem,calc(1.75rem + 3vw),4rem);font-weight:400;line-height:1.15;letter-spacing:normal;color:var(--accent);text-wrap:balance;overflow-wrap:break-word}
 .publication-subtitle{max-width:var(--w);margin:0 auto 1.25rem;font-size:clamp(1.25rem,2.5vw,2rem);font-weight:400;line-height:1.5;letter-spacing:normal;text-wrap:balance;overflow-wrap:break-word}
 .publication-authors{display:flex;flex-wrap:wrap;justify-content:center;gap:0 1rem;margin:0 auto .15rem;padding:0;list-style:none;font-size:1.25rem;line-height:1.5;color:var(--ink)}
 .publication-authors li{white-space:nowrap}
 .publication-affiliation{margin-bottom:.15rem;font-size:1.25rem;line-height:1.5;color:var(--muted)}
-.publication-venue{margin-top:1rem;font-size:1rem;font-style:normal;color:#c94a3a}
 
 /* Buttons */
 .button{display:inline-flex;align-items:center;justify-content:center;gap:.45em;min-height:36px;padding:.4rem .9rem;border:1px solid var(--ink);border-radius:4px;background:#fff;color:var(--ink);font-family:var(--sans);font-size:.84rem;font-weight:500;line-height:1.2;white-space:nowrap;transition:background-color .15s ease,color .15s ease}
@@ -255,10 +254,8 @@ dialog::backdrop{background:rgba(20,20,20,.72)}
   .sensor-hardware{margin-top:1.5rem}
   .trajectory-section{margin-inline:auto;width:100%}
   .hero-block{padding:3.5rem 0 .5rem}
-  .publication-title{font-size:clamp(2rem,6vw,3rem);line-height:1.3}
   .publication-subtitle{font-size:clamp(1.25rem,4.4vw,2rem);line-height:1.4;margin-top:.5rem}
   .publication-authors,.publication-affiliation{font-size:1.05rem}
-  .publication-venue{font-size:.95rem}
   .tldr{font-size:1rem}
   .abstract{text-align:left}
   .figure-pair,.data-roles{grid-template-columns:1fr;gap:1rem}

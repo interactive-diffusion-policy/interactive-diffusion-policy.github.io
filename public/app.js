@@ -96,7 +96,8 @@ if (hero) {
   const video = heroVideo;
   const revision = '?v=' + hero.sha256.slice(0, 12);
   video.src = hero.src + revision;
-  const widescreen = ['idp-home-teaser', 'idp-project-video', 'idp-focused-highlight', 'idp-research-montage'].includes(hero.id);
+  const autoplay = ['idp-human-interaction-highlight', 'idp-research-montage', 'idp-home-teaser'].includes(hero.id);
+  const widescreen = autoplay || ['idp-project-video', 'idp-focused-highlight'].includes(hero.id);
   video.classList.toggle('research-montage', widescreen);
   video.classList.toggle('comparison-edit', !widescreen);
   video.poster = hero.thumbnail ? hero.thumbnail + revision : '';
@@ -105,7 +106,7 @@ if (hero) {
     speed.hidden = false;
     video.addEventListener('timeupdate', () => { speed.textContent = video.currentTime < 17 ? '1×' : '2×'; });
   }
-  if (['idp-research-montage', 'idp-home-teaser'].includes(hero.id)) {
+  if (autoplay) {
     video.loop = true;
     if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
       video.autoplay = true;

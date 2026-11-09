@@ -115,20 +115,23 @@ class PreviewTests(unittest.TestCase):
         self.assertIn("--accent:#8c1515", css)
         self.assertIn('<nav class="footer-nav" aria-label="Page sections">', html)
         self.assertNotIn('class="site-nav"', html)
+        self.assertNotIn("Submitted to IEEE Robotics and Automation Letters", html)
+        self.assertNotIn("Awaiting review", html)
         self.assertIn("Coming soon.", html)
 
-    def test_research_montage_is_the_hero(self):
+    def test_human_interaction_video_is_the_hero(self):
         root = Path(__file__).resolve().parents[1]
         html = (root / "public/index.html").read_text(encoding="utf-8")
         catalog = json.loads((root / "public/catalog.json").read_text(encoding="utf-8"))
         hero = re.search(r'<video\b[^>]*id="hero-video"[^>]*>', html)
         self.assertIsNotNone(hero)
-        self.assertIn('data-hero="idp-research-montage"', hero.group())
-        self.assertTrue(any(a["id"] == "idp-research-montage" and a["kind"] == "video"
-                            for a in catalog["assets"]))
+        hero_id = "idp-human-interaction-highlight"
+        self.assertIn(f'data-hero="{hero_id}"', hero.group())
+        asset = next(a for a in catalog["assets"] if a["id"] == hero_id)
+        self.assertEqual(asset["kind"], "video")
+        self.assertEqual(asset["src"], f"assets/{hero_id}.mp4")
         note = re.search(r'<p class="teaser-note">(.*?)</p>', html, re.S)
-        self.assertIn("human-guided data collection", note.group())
-        self.assertNotIn("two recorded trials", note.group())
+        self.assertEqual(note.group(1), asset["caption"])
 
 
 if __name__ == "__main__":
