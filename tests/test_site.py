@@ -117,9 +117,11 @@ class PreviewTests(unittest.TestCase):
         root = Path(__file__).resolve().parents[1]
         html = (root / "public/index.html").read_text(encoding="utf-8")
         css = (root / "public/style.css").read_text(encoding="utf-8")
-        self.assertIn("family=Source+Sans+Pro", html)
         self.assertIn("family=Google+Sans", html)
+        self.assertIn("family=Noto+Sans", html)
+        self.assertNotIn("Source+Sans+Pro", html)
         self.assertIn('<h1 class="publication-title">Interactive Diffusion Policy</h1>', html)
+        self.assertIn("--sans:'Noto Sans'", css)
         self.assertIn("--display:'Google Sans'", css)
         self.assertIn('<nav class="footer-nav" aria-label="Page sections">', html)
         self.assertNotIn('class="site-nav"', html)
