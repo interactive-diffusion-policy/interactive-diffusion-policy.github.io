@@ -168,12 +168,12 @@ features.forEach(([id, title, caption], i) => {
 });
 
 const trajectoryVideos = [
-  ['fig9-sync-dgb-dp-stop', 'DGB', 'DP + Stop', 'Stop during intrusion.'],
-  ['fig9-sync-dgb-dp-rmp', 'DGB', 'DP + RMPflow', 'Avoidance without recovery guidance.'],
-  ['fig9-sync-dgb-dp-rmp-lpb', 'DGB', 'IDP', 'Avoidance and learned recovery.'],
-  ['fig9-sync-sao-dp-stop', 'SAO', 'DP + Stop', 'Stop during intrusion.'],
-  ['fig9-sync-sao-dp-rmp', 'SAO', 'DP + RMPflow', 'Avoidance without recovery guidance.'],
-  ['fig9-sync-sao-dp-rmp-lpb', 'SAO', 'IDP', 'Avoidance and learned recovery.']
+  ['fig9-sync-dgb-dp-stop', 'DGB', 'DP + Stop', 'Stop during intrusion, then continue the task.'],
+  ['fig9-sync-dgb-dp-rmp', 'DGB', 'DP + RMPflow', 'Reactive avoidance with policy continuation.'],
+  ['fig9-sync-dgb-dp-rmp-lpb', 'DGB', 'IDP', 'RMPflow avoidance with Recovery-aware LPB guidance.'],
+  ['fig9-sync-sao-dp-stop', 'SAO', 'DP + Stop', 'Sudden-obstacle stop baseline.'],
+  ['fig9-sync-sao-dp-rmp', 'SAO', 'DP + RMPflow', 'Reactive avoidance with policy continuation.'],
+  ['fig9-sync-sao-dp-rmp-lpb', 'SAO', 'IDP', 'RMPflow avoidance with Recovery-aware LPB guidance.']
 ];
 const trajectoryTasks = [['DGB', 'Dynamic global blocking'], ['SAO', 'Suddenly appearing obstacle']];
 const trajectoryRoot = document.getElementById('trajectory-videos');
@@ -283,9 +283,9 @@ if (tabs.length) {
 }
 
 const sensingComparisons = [
-  ['sensor-camera-s1', 'Visible obstacle', 'Both sensing inputs support avoidance.'],
-  ['sensor-camera-s2', 'Camera occlusion', 'Arm-mounted sensors detect the obscured obstacle.'],
-  ['sensor-camera-s3', 'Transparent glass', 'Proximity sensors detect glass missed by depth sensing.'],
+  ['sensor-camera-s1', 'Visible obstacle', 'Depth sensing, camera-driven avoidance, and proximity-driven avoidance with an unobstructed view.'],
+  ['sensor-camera-s2', 'Camera occlusion', 'The robot blocks the approaching obstacle from the depth camera; link-mounted sensing supports avoidance.'],
+  ['sensor-camera-s3', 'Transparent glass', 'Depth sensing misses the glass in this comparison, while proximity input supports avoidance.'],
 ];
 const sensingRoot = document.getElementById('sensing-comparisons');
 if (sensingRoot) {

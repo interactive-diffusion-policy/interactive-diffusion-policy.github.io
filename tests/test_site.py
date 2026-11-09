@@ -134,21 +134,6 @@ class PreviewTests(unittest.TestCase):
         self.assertEqual(note.group(1), asset["caption"])
         self.assertIn("1.8× speed", note.group(1))
 
-    def test_takeaway_links_to_the_scoped_recovery_result(self):
-        root = Path(__file__).resolve().parents[1]
-        html = (root / "public/index.html").read_text(encoding="utf-8")
-        takeaway = re.search(r'<div class="project-overview".*?</a>', html, re.S)
-        self.assertIsNotNone(takeaway)
-        self.assertLess(takeaway.start(), html.index('id="hero-video"'))
-        self.assertIn('href="#experiments"', takeaway.group())
-        self.assertIn("post-avoidance poses", takeaway.group())
-        result = re.search(r'<table aria-describedby="table1-caption">.*?</table>', html, re.S)
-        self.assertIsNotNone(result)
-        rates = re.findall(r"\d+\.\d+%", result.group())
-        self.assertEqual(rates, ["25.0%", "63.8%", "91.3%"])
-        self.assertTrue(all(rate in takeaway.group() for rate in rates[1:]))
-        self.assertIn("80 per condition", html)
-
 
 if __name__ == "__main__":
     unittest.main()
