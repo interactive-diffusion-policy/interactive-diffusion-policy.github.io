@@ -3,9 +3,10 @@
 Project website for **Interactive Diffusion Policy: Safe Reactive Avoidance
 through Proximity Sensing in Human-Robot Shared Environments**.
 
-This repository contains the editable website and its selected figures and
-videos. It does **not** contain robot-control software, training datasets,
-checkpoints, the manuscript source, or internal correspondence.
+This repository contains the editable website, its selected figures and
+videos, and the manuscript PDF linked from the title block. It does **not**
+contain robot-control software, training datasets, checkpoints, the manuscript
+source, or internal correspondence.
 
 Authors: Yeong Gwang Son, Hyunchang Kang, Youngbin Song, Hyunjoon Cho, and
 Hyouk Ryeol Choi.
@@ -35,6 +36,7 @@ It does not serve the Git repository or development files.
 | `public/catalog.json` | Selected media metadata |
 | `public/catalog.js` | The same catalog for direct-file and HTTP previews |
 | `public/assets/` | Selected video, figure, and thumbnail files |
+| `public/assets/interactive-diffusion-policy.pdf` | Manuscript PDF behind the title-block Paper link |
 | `tools/validate.py` | Links, media integrity, and credential/path checks |
 | `tools/update_catalog.py` | Refresh catalog integrity fields and cache revisions |
 | `tools/serve.py` | Local-only static preview |
@@ -61,6 +63,9 @@ a crawler hint, not authentication.
 
 The source snapshot follows the supplied October 2026 manuscript. Its result
 table is a transcription of the manuscript, not a new trial-level evaluation.
+The Paper link serves the anonymized October 2026 submission PDF, whose author
+line reads "Anonymous Authors"; replace that file when a public version with
+author names is available.
 Media preserve the distinction between autonomous execution and human-assisted
 data collection. Do not relabel one as the other.
 
