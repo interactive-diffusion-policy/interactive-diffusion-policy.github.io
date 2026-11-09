@@ -1,0 +1,10 @@
+{
+  "output": "../public/assets/idp-home-teaser.mp4",
+  "frame": {"aspect": "16:9", "width": 1280, "height": 720, "fps": 24},
+  "clips": [
+    {"src": "../public/assets/fig9-robot-dgb-dp-rmp-lpb.mp4", "in": 3, "out": 20},
+    {"src": "../public/assets/fig9-robot-dgb-dp-rmp-lpb.mp4", "in": 32, "out": 48.3, "speed": 2},
+    {"src": "../public/assets/fig9-robot-sao-dp-rmp-lpb.mp4", "in": 33, "out": 44, "speed": 2}
+  ],
+  "transition": {"type": "none", "duration": 0}
+}

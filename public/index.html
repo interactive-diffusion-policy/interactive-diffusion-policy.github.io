@@ -1,0 +1,210 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Interactive Diffusion Policy combines robot-mounted proximity sensing, reactive RMPflow avoidance, and recovery-aware latent guidance for task resumption in human-robot shared workspaces.">
+  <meta name="robots" content="noindex,nofollow">
+  <meta name="author" content="Yeong Gwang Son">
+  <meta name="author" content="Hyunchang Kang">
+  <meta name="author" content="Youngbin Song">
+  <meta name="author" content="Hyunjoon Cho">
+  <meta name="author" content="Hyouk Ryeol Choi">
+  <meta name="color-scheme" content="light"><meta name="theme-color" content="#ffffff">
+  <title>Interactive Diffusion Policy: Safe Reactive Avoidance through Proximity Sensing in Human-Robot Shared Environments</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+  <link rel="icon" href="icon.svg" type="image/svg+xml"><link rel="stylesheet" href="style.css?v=ac0573535081">
+  <script defer src="catalog.js?v=ff1dad03caf6"></script><script defer src="app.js?v=90be410a2053"></script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<main id="main">
+<section class="hero-block"><div class="wrap">
+  <a class="institution-lockup" href="https://mecha.skku.ac.kr/roboticsinnovatory/index.do" target="_blank" rel="noopener" aria-label="Robotics Innovatory at Sungkyunkwan University">
+    <img src="skku-robotics-innovatory-logo.png" width="344" height="74" alt="Robotics Innovatory, Sungkyunkwan University">
+  </a>
+  <h1 class="publication-title">Interactive Diffusion Policy</h1>
+  <h2 class="publication-subtitle">Safe Reactive Avoidance through Proximity Sensing in Human-Robot Shared Environments</h2>
+  <ul class="publication-authors" aria-label="Authors">
+    <li>Yeong Gwang Son</li>
+    <li>Hyunchang Kang</li>
+    <li>Youngbin Song</li>
+    <li>Hyunjoon Cho</li>
+    <li>Hyouk Ryeol Choi</li>
+  </ul>
+  <div class="publication-affiliation">Robotics Innovatory · Department of Mechanical Engineering · Sungkyunkwan University</div>
+  <div class="publication-venue">Submitted to IEEE Robotics and Automation Letters (RA-L) · Awaiting review</div>
+</div></section>
+
+<section class="teaser" aria-label="Highlight video"><div class="wrap">
+  <div class="media-frame hero-frame">
+    <video id="hero-video" class="research-montage" data-hero="idp-research-montage" controls muted playsinline preload="metadata" aria-label="Research montage of robot trials, expert demonstrations, and human-guided data collection"></video>
+    <span id="hero-speed" class="hero-speed" aria-hidden="true" hidden>1×</span>
+  </div>
+  <p class="teaser-note">Robot trials, expert demonstrations, and human-guided data collection.</p>
+  <p class="tldr">Proximity sensing enables local avoidance. Recovery-aware latent guidance helps the robot <i>resume the task</i> afterward.</p>
+  <details class="analysis-disclosure full-video">
+    <summary>Watch the full supplementary video</summary>
+    <div class="media-frame"><video id="full-video" controls muted playsinline preload="none" data-video="idp-project-video" aria-label="Full Interactive Diffusion Policy supplementary video"></video></div>
+    <div class="video-chapters" role="group" aria-label="Full video chapters">
+      <button class="video-action" type="button" data-hero-time="0">Proximity sensing</button>
+      <button class="video-action" type="button" data-hero-time="44.055">Camera comparison</button>
+      <button class="video-action" type="button" data-hero-time="82.104">Data collection</button>
+      <button class="video-action" type="button" data-hero-time="109.296">Recovery comparison</button>
+      <button class="video-action" type="button" data-hero-time="136.62">Full task</button>
+    </div>
+  </details>
+</div></section>
+
+<section class="section" id="abstract"><div class="wrap">
+  <h2 class="title">Abstract</h2>
+  <div class="abstract">
+    <p>A manipulator sharing its workspace with people must avoid approaching obstacles and complete its task afterward. Reactive avoidance can move the robot outside the demonstration distribution, where a learned policy struggles to resume. Visual occlusion and transparent objects also challenge camera-based obstacle detection.</p>
+    <p>Interactive Diffusion Policy (IDP) connects task execution, reactive avoidance, and recovery. Diffusion Policy generates reference targets from RGB and proprioceptive observations. A continuously running RMPflow controller combines target tracking with avoidance driven by robot-mounted capacitive proximity sensing. Latent Policy Barrier (LPB) guides task resumption using a dynamics model trained on recovery trajectories collected after actual RMPflow deflections, with human guidance when the policy cannot continue.</p>
+    <p>Sensor experiments examine occlusion and transparent glass. Manipulation experiments compare recovery data and controller configurations, with Recovery-aware LPB reaching 91.3% task completion from post-avoidance states.</p>
+  </div>
+  <figure class="paper-figure overview-figure" data-feature="paper-overview">
+    <button class="figure-open" type="button" aria-label="Enlarge execution, avoidance, and recovery overview"><img alt="Task execution, RMPflow avoidance, and LPB distribution recovery" loading="lazy"></button>
+    <figcaption><strong>Figure 1:</strong> Avoidance can move the robot off the demonstrated path. LPB guidance supports task resumption from the resulting state.</figcaption>
+  </figure>
+</div></section>
+
+<section class="section numbered" id="method"><div class="wrap">
+  <h2 class="title">From Task Execution to Task Resumption</h2>
+  <div class="pillars">
+    <article class="pillar"><h3>Diffusion Policy</h3><p>RGB observations and proprioception condition an action chunk that supplies reference targets for the task.</p></article>
+    <article class="pillar"><h3>RMPflow avoidance</h3><p>The low-level controller continuously combines reference tracking with proximity-driven obstacle avoidance.</p></article>
+    <article class="pillar"><h3>LPB recovery</h3><p>When the latent OOD cost rises above its threshold, learned dynamics guides action generation toward the expert distribution.</p></article>
+  </div>
+  <figure class="paper-figure" data-feature="paper-framework">
+    <button class="figure-open" type="button" aria-label="Enlarge integrated IDP architecture"><img alt="IDP architecture and recovery dynamics training" loading="lazy"></button>
+    <figcaption><strong>Figure 5:</strong> Diffusion Policy generates reference targets, RMPflow combines tracking and local avoidance, and LPB uses action-conditioned dynamics to guide recovery.</figcaption>
+  </figure>
+  <p class="method-explanation">Proximity measurements feed RMPflow. LPB responds to the observation's distance from the expert latent set. The controller therefore reacts to an approaching obstacle while the policy receives recovery guidance when avoidance leaves it outside its learned distribution.</p>
+</div></section>
+
+<section class="section numbered" id="sensing"><div class="wrap">
+  <h2 class="title">Proximity Sensing Around the Robot</h2>
+  <p class="section-lead">Link-mounted sensors provide local distance information when an external camera cannot see an approaching object.</p>
+  <div class="subsection sensor-scenarios">
+    <h3 class="subhead">Where depth sensing falls short</h3>
+    <p class="section-lead">The same RMPflow controller is evaluated with camera-based or proximity-based obstacle input.</p>
+    <div id="sensing-comparisons"></div>
+    <details class="analysis-disclosure"><summary>View the sensor comparison figure</summary>
+      <figure class="paper-figure sensor-comparison" data-feature="paper-sensor-comparison">
+        <button class="figure-open" type="button" aria-label="Enlarge depth camera versus proximity sensing comparison"><img alt="Avoidance with a visible obstacle, robot-induced camera occlusion, and transparent glass" loading="lazy"></button>
+        <figcaption><strong>Figure 4:</strong> Both sensing inputs support avoidance with an unobstructed view. Proximity sensing also supports avoidance in the shown robot-occlusion and transparent-glass cases, where depth-camera control collides.</figcaption>
+      </figure>
+    </details>
+  </div>
+  <div class="figure-pair sensor-hardware">
+    <figure class="paper-figure" data-feature="paper-sensor-module">
+      <button class="figure-open" type="button" aria-label="Enlarge RB10 sensor module"><img alt="RB10 sensor placement and exploded capacitive and ToF module" loading="lazy"></button>
+      <figcaption><strong>Figure 2:</strong> Capacitive sensing and ToF modules mounted on the RB10 links.</figcaption>
+    </figure>
+    <figure class="paper-figure" data-feature="paper-sensor-calibration">
+      <button class="figure-open" type="button" aria-label="Enlarge distance estimation experiment"><img alt="Moving metal specimen, reference distance, sensor estimate, and error" loading="lazy"></button>
+      <figcaption><strong>Figure 3:</strong> In the metal-specimen jig test, the distance estimate follows the reference with approximately ±20 mm error.</figcaption>
+    </figure>
+  </div>
+  <p class="method-explanation">ToF reference measurements calibrate the capacitive distance estimate. Compensation for the robot's own response reduces self-detection as the joint configuration changes.</p>
+  <details class="analysis-disclosure"><summary>Watch the distance-estimation test jig</summary>
+    <div class="media-frame"><video controls muted playsinline preload="none" data-video="sensor-jig-motion" aria-label="Test jig motion with distance-response plot"></video></div>
+    <p class="teaser-note">Jig motion and distance response · 8× playback.</p>
+  </details>
+  <figure class="collection-film sensor-response">
+    <div class="media-frame"><video controls muted playsinline preload="none" data-video="sensor-reactive-avoidance" aria-label="Proximity-driven RB10 obstacle avoidance"></video></div>
+    <figcaption>Local avoidance as an obstacle approaches different parts of the robot.</figcaption>
+  </figure>
+  <details class="analysis-disclosure"><summary>Watch close-proximity interactions</summary><div id="proximity-videos"></div></details>
+</div></section>
+
+<section class="section numbered" id="collection"><div class="wrap">
+  <h2 class="title">Learning from Avoidance and Recovery</h2>
+  <p class="section-lead">Collect the transitions the robot encounters after its avoidance controller deflects it from the task.</p>
+  <ol class="steps">
+    <li><h3>Run the policy</h3><p>An intermediate checkpoint executes the pick-and-place task. An obstacle approaches during the rollout.</p></li>
+    <li><h3>Avoid, then guide</h3><p>RMPflow produces the avoidance motion. When the policy cannot resume, the operator provides human guidance until execution continues.</p></li>
+    <li><h3>Train the dynamics</h3><p>Fixed-horizon transitions from expert demonstrations and recovery rollouts train LPB's action-conditioned latent dynamics.</p></li>
+  </ol>
+  <figure class="paper-figure collection-figure" data-feature="paper-collection">
+    <button class="figure-open" type="button" aria-label="Enlarge recovery-aware collection example"><img alt="Policy rollout, RMPflow avoidance, human guidance, and TCP trajectory" loading="lazy"></button>
+    <figcaption><strong>Figure 7:</strong> A checkpoint rollout is deflected by RMPflow. Human guidance helps resume the task, and the complete rollout supplies dynamics-training transitions.</figcaption>
+  </figure>
+  <div class="data-roles">
+    <p><strong>100 expert demonstrations</strong> train the base policy, define the expert latent reference, and provide dynamics-training samples.</p>
+    <p><strong>Recovery trajectories</strong> contain policy rollout, avoidance, and human-guided resumption, expanding dynamics coverage around avoidance-induced states.</p>
+  </div>
+  <figure class="collection-film">
+    <div class="media-frame"><video controls playsinline preload="none" data-video="idp-recovery-collection" aria-label="Avoidance and human-guided collection rollout"></video></div>
+    <figcaption>A recorded human-assisted collection rollout with measured end-effector motion.</figcaption>
+  </figure>
+</div></section>
+
+<section class="section numbered" id="experiments"><div class="wrap">
+  <h2 class="title">Real-Robot Experiments</h2>
+  <p class="section-lead">Wide-range pick-and-place with a Rainbow Robotics RB10, RGB cameras, a parallel-jaw gripper, and link-mounted proximity sensors.</p>
+  <figure class="paper-figure setup-figure" data-feature="paper-setup">
+    <button class="figure-open" type="button" aria-label="Enlarge experimental setup"><img alt="RB10 pick-and-place workspace with vision cameras and proximity sensors" loading="lazy"></button>
+    <figcaption><strong>Figure 6:</strong> Experimental setup with pick and place locations, RGB cameras, and proximity sensors.</figcaption>
+  </figure>
+  <div class="subsection">
+    <h3 class="subhead">Recovery dataset ablation</h3>
+    <p class="section-lead">The recovery mechanism changes under the same IDP architecture. Each condition is evaluated from eight post-avoidance robot poses, with ten trials per pose. A trial succeeds when the robot completes the task from that starting state.</p>
+    <div class="results">
+      <p id="table1-caption" class="table-caption"><strong>Table I:</strong> Task completion from post-avoidance states, 80 trials per condition.</p>
+      <div class="table-scroll"><table aria-describedby="table1-caption">
+        <caption class="sr-only">Task success for No Guidance, rollout-trained LPB, and Recovery-aware LPB</caption>
+        <thead><tr><th scope="col">Condition</th><th scope="col">Recovery mechanism</th><th scope="col" class="num">Task success</th></tr></thead>
+        <tbody>
+          <tr><td>No Guidance</td><td>Policy continuation without LPB</td><td class="num">25.0%</td></tr>
+          <tr><td>LPB</td><td>Dynamics trained on checkpoint rollouts</td><td class="num">63.8%</td></tr>
+          <tr class="ours"><td><strong>Recovery-aware LPB</strong></td><td>Dynamics trained on avoidance and recovery trajectories</td><td class="num"><strong>91.3%</strong></td></tr>
+        </tbody>
+      </table></div>
+    </div>
+  </div>
+  <div class="subsection trajectory-section">
+    <h3 class="subhead">Recovery under dynamic obstacles</h3>
+    <p class="section-lead"><strong>Dynamic global blocking (DGB)</strong> continuously pushes the robot away from its nominal path. A <strong>suddenly appearing obstacle (SAO)</strong> requires rapid avoidance followed by task resumption.</p>
+    <div id="trajectory-videos"></div>
+    <details class="analysis-disclosure"><summary>Watch a side-by-side DGB recovery comparison</summary>
+      <div class="media-frame"><video controls muted playsinline preload="none" data-video="idp-dgb-comparison" aria-label="DP plus RMPflow and Recovery-aware LPB side-by-side example"></video></div>
+    </details>
+    <figure class="paper-figure" data-feature="paper-obstacle-paths">
+      <button class="figure-open" type="button" aria-label="Enlarge dynamic-obstacle trajectory comparison"><img alt="DP plus Stop, DP plus RMPflow, and IDP under DGB and SAO" loading="lazy"></button>
+      <figcaption><strong>Figure 9:</strong> DP + Stop halts on the path; DP + RMPflow avoids but fails to resume the task in these examples. IDP recovers after deflection and completes the task.</figcaption>
+    </figure>
+  </div>
+  <div class="subsection">
+    <h3 class="subhead">Avoidance and recovery within a rollout</h3>
+    <p class="section-lead">Wrist observations and nearest expert images show how the latent cost changes as the robot is deflected and returns toward the task distribution.</p>
+    <figure class="paper-figure" data-feature="paper-ood-events">
+      <button class="figure-open" type="button" aria-label="Enlarge avoidance and latent cost timeline"><img alt="Four avoidance events, wrist observations, expert reference images, and OOD cost" loading="lazy"></button>
+      <figcaption><strong>Figure 10:</strong> Four avoidance events during a representative rollout, with the latent OOD cost and LPB activation threshold below.</figcaption>
+    </figure>
+    <details class="analysis-disclosure"><summary>Inspect the observation and guidance timeline</summary><div id="featured-videos" class="video-grid single"></div></details>
+  </div>
+</div></section>
+
+<section class="section" id="library"><div class="wrap">
+  <h2 class="title">Supplementary Media</h2><div class="asset-grid" id="assets"></div>
+</div></section>
+<section class="section" id="resources"><div class="wrap">
+  <h2 class="title">Resources</h2>
+  <ul class="resource-list">
+    <li><div class="resource-card resource-card--pending"><span class="resource-title">Code</span><span class="resource-desc">Coming soon.</span></div></li>
+    <li><a class="resource-card" href="https://cheesss.github.io/" target="_blank" rel="noopener"><span class="resource-title">Research portfolio</span><span class="resource-desc">Related robotics projects.</span></a></li>
+  </ul>
+</div></section>
+</main>
+<footer class="footer"><div class="wrap footer-inner">
+  <nav class="footer-nav" aria-label="Page sections">
+    <a href="#method">Method</a><a href="#sensing">Sensing</a><a href="#collection">Recovery</a><a href="#experiments">Results</a>
+  </nav>
+  <p>Interactive Diffusion Policy</p>
+  <p class="footer-links"><a href="https://mecha.skku.ac.kr/roboticsinnovatory/index.do" target="_blank" rel="noopener">Robotics Innovatory · Sungkyunkwan University</a><a href="#main">Back to top ↑</a></p>
+</div></footer>
+<dialog id="viewer"><div class="dialog-bar"><span id="dialog-title"></span><button id="close-viewer" type="button" aria-label="Close media viewer">Close ×</button></div><div id="dialog-media"></div><div class="dialog-caption"><p id="dialog-caption"></p><a id="dialog-download" class="button" download>Download ↓</a></div></dialog>
+</body>
+</html>
