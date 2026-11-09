@@ -85,14 +85,21 @@ class PreviewTests(unittest.TestCase):
         html = (root / "public/index.html").read_text(encoding="utf-8")
         authors = re.search(r'<ul class="publication-authors".*?</ul>', html, re.S)
         self.assertIsNotNone(authors)
+        names = [
+            re.sub(r"<[^>]+>", "", item).strip(" ,")
+            for item in re.findall(r"<li>(.*?)</li>", authors.group(), re.S)
+        ]
+        self.assertEqual(names, [
+            "Yeong Gwang Son", "Hyunchang Kang", "Youngbin Song", "Hyunjoon Cho", "Hyouk Ryeol Choi",
+        ])
         links = re.findall(r'<a\b[^>]*\bhref="([^"]+)"[^>]*>([^<]+)</a>', authors.group())
         self.assertEqual(links, [
             ("https://sonyeonggwang.github.io/", "Yeong Gwang Son"),
             ("https://hyunchangkang.github.io/MyWebsite/", "Hyunchang Kang"),
             ("https://dudqls10.github.io/", "Youngbin Song"),
             ("https://cheesss.github.io/", "Hyunjoon Cho"),
-            ("https://pure.skku.edu/en/persons/hyouk-ryeol-choi/", "Hyouk Ryeol Choi"),
         ])
+        self.assertNotIn("pure.skku.edu", html)
         self.assertEqual(html.count('href="https://cheesss.github.io/"'), 1)
 
     def test_jig_video_uses_distance_plot(self):
