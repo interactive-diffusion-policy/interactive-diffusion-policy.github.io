@@ -135,10 +135,10 @@ class PreviewTests(unittest.TestCase):
         abstract = re.search(r'<div class="abstract">(.*?)</div>', html, re.S)
         self.assertIsNotNone(abstract)
         paragraphs = re.findall(r"<p>(.*?)</p>", abstract.group(1), re.S)
-        self.assertEqual(len(paragraphs), 2)
+        self.assertEqual(len(paragraphs), 1)
         self.assertTrue(paragraphs[0].startswith("Manipulators sharing a workspace with humans must avoid"))
-        self.assertTrue(paragraphs[1].startswith("In this paper, we propose Interactive Diffusion Policy (IDP)"))
-        self.assertIn("achieved a task success rate of 91.3%.", paragraphs[1])
+        self.assertIn("out-of-distribution states. In this paper, we propose Interactive Diffusion Policy (IDP)", paragraphs[0])
+        self.assertIn("achieved a task success rate of 91.3%.", paragraphs[0])
         self.assertIn("<strong>91.3%</strong>", html)
 
     def test_title_block_logo_and_affiliation(self):

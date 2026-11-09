@@ -63,7 +63,8 @@ a crawler hint, not authentication.
 
 The source snapshot follows the supplied October 2026 manuscript. Its result
 table is a transcription of the manuscript, not a new trial-level evaluation.
-The Abstract section quotes the manuscript abstract verbatim. The Paper link serves the anonymized October 2026 submission PDF, whose author
+The Abstract section quotes the manuscript abstract verbatim as one paragraph.
+The Paper link serves the anonymized October 2026 submission PDF, whose author
 line reads "Anonymous Authors"; replace that file when a public version with
 author names is available.
 Media preserve the distinction between autonomous execution and human-assisted
