@@ -58,7 +58,7 @@
 <section class="section" id="abstract"><div class="wrap">
   <h2 class="title">Abstract</h2>
   <div class="abstract">
-    <p>Reactive avoidance can leave a robot in states not covered by its demonstrations, making task resumption difficult. Interactive Diffusion Policy (IDP) combines Diffusion Policy with link-mounted capacitive sensing and RMPflow for local avoidance. We train the dynamics model used by Latent Policy Barrier (LPB) on expert demonstrations and recovery rollouts that include real avoidance and, when needed, operator correction. RB10 experiments compare depth and proximity sensing under occlusion and with transparent obstacles, and evaluate pick-and-place completion from post-avoidance poses.</p>
+    <p>Interactive Diffusion Policy (IDP) separates reactive avoidance from task resumption. Link-mounted capacitive proximity sensors feed RMPflow to adjust the robot's motion near obstacles. When avoidance takes the robot outside its demonstration distribution, Latent Policy Barrier (LPB) guides the diffusion policy back toward demonstrated states. LPB uses dynamics trained on expert demonstrations and real avoidance-and-recovery rollouts, with operator corrections collected when needed.</p>
   </div>
   <figure class="paper-figure overview-figure" data-feature="paper-overview">
     <button class="figure-open" type="button" aria-label="Enlarge execution, avoidance, and recovery overview"><img alt="Task execution, RMPflow avoidance, and LPB distribution recovery" loading="lazy"></button>
