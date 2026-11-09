@@ -131,6 +131,16 @@ document.querySelectorAll('video[data-video]').forEach(video => {
   video.src = a.src + v;
   video.poster = a.thumbnail ? a.thumbnail + v : '';
 });
+// Title-block links open catalog media in the viewer; modified clicks keep the direct-file href.
+document.querySelectorAll('a[data-open-media]').forEach(link => {
+  const a = byId(link.dataset.openMedia);
+  if (!a) return;
+  link.addEventListener('click', event => {
+    if (event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+    event.preventDefault();
+    openMedia(a);
+  });
+});
 
 // Figure modal uses the visible figure caption and title rather than internal catalog metadata.
 document.querySelectorAll('[data-feature]').forEach(figure => {

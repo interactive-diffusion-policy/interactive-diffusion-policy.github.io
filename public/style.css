@@ -6,12 +6,15 @@
   --muted:#5e5b5b;
   --faint:#666363;
   --rule:#dedede;
-  --accent:#8c1515;
   --link:#287b66;
+  --hero-ink:#363636;
+  --hero-text:#4a4a4a;
+  --author-link:#0e78be;
   --shade:#f6f6f4;
   --w:864px;
   --w-abstract:864px;
   --sans:'Source Sans Pro',Helvetica,Arial,sans-serif;
+  --display:'Google Sans','Source Sans Pro',Helvetica,Arial,sans-serif;
   --mono:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,'Liberation Mono','Courier New',monospace;
   color-scheme:light;
 }
@@ -46,16 +49,22 @@ h2.title{margin:0 0 1.5rem;font-size:1.5rem;line-height:1.5;letter-spacing:norma
 .section-lead{margin:0 0 1.5rem;color:var(--muted)}
 .note{margin:1.25rem 0 0;padding:0 0 0 1rem;border-left:2px solid var(--rule);font-size:.88rem;font-style:italic;line-height:1.6;color:var(--muted)}
 
-/* Title block */
-.hero-block{padding:5.25rem 0 .5rem;text-align:center}
-.institution-lockup{display:inline-flex;margin:0 auto 1.25rem;line-height:0}
-.institution-lockup:hover{opacity:.85}
-.institution-lockup img{width:min(320px,80vw);height:auto}
-.publication-title{max-width:var(--w);margin:0 auto .4rem;font-size:clamp(2.375rem,calc(1.75rem + 3vw),4rem);font-weight:400;line-height:1.15;letter-spacing:normal;color:var(--accent);text-wrap:balance;overflow-wrap:break-word}
-.publication-subtitle{max-width:var(--w);margin:0 auto 1.25rem;font-size:clamp(1.25rem,2.5vw,2rem);font-weight:400;line-height:1.5;letter-spacing:normal;text-wrap:balance;overflow-wrap:break-word}
-.publication-authors{display:flex;flex-wrap:wrap;justify-content:center;gap:0 1rem;margin:0 auto .15rem;padding:0;list-style:none;font-size:1.25rem;line-height:1.5;color:var(--ink)}
+/* Title block: centered title, linked authors, affiliation, and pill links (after umi-ft.github.io) */
+.hero-block{padding:5.5rem 0 2.5rem;text-align:center;font-family:var(--display);color:var(--hero-text)}
+.publication-title{max-width:var(--w);margin:0 auto .5rem;font-family:var(--display);font-size:clamp(2.25rem,calc(1.5rem + 2.5vw),3rem);font-weight:600;line-height:1.125;letter-spacing:normal;color:var(--hero-ink);text-wrap:balance;overflow-wrap:break-word}
+.publication-subtitle{max-width:var(--w);margin:0 auto 1.25rem;font-family:var(--display);font-size:clamp(1.25rem,calc(.9rem + 1.2vw),1.625rem);font-weight:400;line-height:1.35;letter-spacing:normal;color:var(--hero-text);text-wrap:balance;overflow-wrap:break-word}
+.publication-authors{display:flex;flex-wrap:wrap;justify-content:center;gap:0 .35em;margin:0 auto;padding:0;list-style:none;font-size:1.25rem;line-height:1.5}
 .publication-authors li{white-space:nowrap}
-.publication-affiliation{margin-bottom:.15rem;font-size:1.25rem;line-height:1.5;color:var(--muted)}
+.publication-authors a{color:var(--author-link);text-decoration:none}
+.publication-authors a:hover{text-decoration:underline;text-underline-offset:.15em}
+.publication-affiliation{font-size:1.25rem;line-height:1.5}
+.publication-affiliation span{white-space:nowrap}
+.publication-links{display:flex;flex-wrap:wrap;justify-content:center;gap:.5rem;margin-top:1.25rem}
+.publication-link{display:inline-flex;align-items:center;gap:.5em;height:2.5em;padding:0 1.25em;border-radius:999px;background:var(--hero-ink);color:#fff;font-size:1rem;line-height:1;white-space:nowrap;text-decoration:none;transition:background-color .15s ease}
+.publication-link:hover{background:#1c1c1c;color:#fff;text-decoration:none}
+.publication-link svg{flex:none;width:1.1em;height:1.1em;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.publication-link.is-disabled{opacity:.5;cursor:not-allowed}
+.publication-link.is-disabled:hover{background:var(--hero-ink)}
 
 /* Buttons */
 .button{display:inline-flex;align-items:center;justify-content:center;gap:.45em;min-height:36px;padding:.4rem .9rem;border:1px solid var(--ink);border-radius:4px;background:#fff;color:var(--ink);font-family:var(--sans);font-size:.84rem;font-weight:500;line-height:1.2;white-space:nowrap;transition:background-color .15s ease,color .15s ease}
@@ -253,8 +262,7 @@ dialog::backdrop{background:rgba(20,20,20,.72)}
   .sensor-scenarios{margin-top:0;padding-top:0}
   .sensor-hardware{margin-top:1.5rem}
   .trajectory-section{margin-inline:auto;width:100%}
-  .hero-block{padding:3.5rem 0 .5rem}
-  .publication-subtitle{font-size:clamp(1.25rem,4.4vw,2rem);line-height:1.4;margin-top:.5rem}
+  .hero-block{padding:3.5rem 0 2rem}
   .publication-authors,.publication-affiliation{font-size:1.05rem}
   .tldr{font-size:1rem}
   .abstract{text-align:left}

@@ -118,13 +118,30 @@ class PreviewTests(unittest.TestCase):
         html = (root / "public/index.html").read_text(encoding="utf-8")
         css = (root / "public/style.css").read_text(encoding="utf-8")
         self.assertIn("family=Source+Sans+Pro", html)
+        self.assertIn("family=Google+Sans", html)
         self.assertIn('<h1 class="publication-title">Interactive Diffusion Policy</h1>', html)
-        self.assertIn("--accent:#8c1515", css)
+        self.assertIn("--display:'Google Sans'", css)
+        self.assertNotIn("institution-lockup", html)
         self.assertIn('<nav class="footer-nav" aria-label="Page sections">', html)
         self.assertNotIn('class="site-nav"', html)
         self.assertNotIn("Submitted to IEEE Robotics and Automation Letters", html)
         self.assertNotIn("Awaiting review", html)
         self.assertIn("Coming soon.", html)
+
+    def test_title_block_links(self):
+        root = Path(__file__).resolve().parents[1]
+        html = (root / "public/index.html").read_text(encoding="utf-8")
+        catalog = json.loads((root / "public/catalog.json").read_text(encoding="utf-8"))
+        block = re.search(r'<div class="publication-links">.*?</div>', html, re.S)
+        self.assertIsNotNone(block)
+        video = re.search(r'<a\b[^>]*\bhref="([^"]+)"[^>]*\bdata-open-media="([^"]+)"', block.group())
+        self.assertIsNotNone(video)
+        asset = next(a for a in catalog["assets"] if a["id"] == video.group(2))
+        self.assertEqual(video.groups(), (asset["src"], "idp-project-video"))
+        code = re.search(r'<span class="publication-link is-disabled">(.*?)</span></span>', block.group(), re.S)
+        self.assertIsNotNone(code)
+        self.assertIn("Code (coming soon)", code.group(1))
+        self.assertNotIn("<a", code.group(1))
 
     def test_full_human_interaction_video_is_the_hero(self):
         root = Path(__file__).resolve().parents[1]

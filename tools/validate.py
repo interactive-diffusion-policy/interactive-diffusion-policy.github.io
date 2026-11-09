@@ -46,7 +46,7 @@ def validate():
     bindings = {identifier for a in assets for identifier in [a["id"], *a.get("aliases", [])]}
     if len({a["id"] for a in assets}) != len(assets):
         errors.append("Duplicate catalog IDs")
-    for binding in re.findall(r'data-(?:feature|video)="([^"]+)"', html):
+    for binding in re.findall(r'data-(?:feature|video|open-media)="([^"]+)"', html):
         if binding not in bindings:
             errors.append(f"Unresolved media binding: {binding}")
     for asset in assets:
