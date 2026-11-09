@@ -127,7 +127,7 @@ class PreviewTests(unittest.TestCase):
         self.assertNotIn('class="site-nav"', html)
         self.assertNotIn("Submitted to IEEE Robotics and Automation Letters", html)
         self.assertNotIn("Awaiting review", html)
-        self.assertIn("Coming soon.", html)
+        self.assertNotIn('id="resources"', html)
 
     def test_abstract_is_the_manuscript_abstract(self):
         root = Path(__file__).resolve().parents[1]

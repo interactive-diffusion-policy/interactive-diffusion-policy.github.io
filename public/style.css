@@ -197,16 +197,6 @@ tr.ours .method-id{color:var(--ink)}
 .video-card.trajectory-card video,
 #featured-videos video{padding-bottom:24px;background:#fafcfc}
 
-/* Resources */
-.resource-list{margin:0;padding:0;list-style:none;border-top:1px solid var(--rule)}
-.resource-list li{border-bottom:1px solid var(--rule)}
-.resource-card{display:grid;grid-template-columns:minmax(0,15rem) minmax(0,1fr);gap:1.5rem;padding:.8rem 0;color:var(--text)}
-.resource-card:hover{text-decoration:none}
-a.resource-card:hover .resource-title{text-decoration:underline}
-.resource-card--pending .resource-title{color:var(--muted)}
-.resource-title{font-weight:600;color:var(--link)}
-.resource-desc{font-size:.95rem;color:var(--muted)}
-
 /* BibTeX */
 .citation-header{display:flex;align-items:center;justify-content:space-between;gap:1rem;margin-bottom:.75rem}
 .citation-header .title{margin:0}
@@ -278,7 +268,6 @@ dialog::backdrop{background:rgba(20,20,20,.72)}
   table{font-size:.82rem;line-height:1.35}
   th,td{padding:.45rem .35rem}
   td.num{white-space:nowrap}
-  .resource-card{grid-template-columns:1fr;gap:.15rem}
 }
 @media (max-width:420px){
   .results th:first-child,.results td:first-child{width:31%}
