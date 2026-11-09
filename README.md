@@ -64,8 +64,9 @@ table is a transcription of the manuscript, not a new trial-level evaluation.
 Media preserve the distinction between autonomous execution and human-assisted
 data collection. Do not relabel one as the other.
 
-The current highlight uses the two excerpts from the original recording shown
-in the two-event comparison, played sequentially without the comparison layout.
+The current highlight is the full original recording shown in the two-event
+comparison. It is encoded without audio and plays at 1.8x recorded speed at
+the browser's default playback rate. The earlier two-excerpt edit is retained.
 The previous 30.708-second teaser uses two recorded trials. `tools/hero-video.json`
 preserves the source windows: DGB 3-20 s at 1x, DGB 32-48.3 s at 2x, and SAO
 33-44 s at 2x. Render with the local `ffmpeg-skill` `render.py` and review the

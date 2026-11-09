@@ -2,6 +2,22 @@
   "updated": "2026-11-09",
   "assets": [
     {
+      "id": "idp-human-interaction-full-1p8x",
+      "aliases": [
+        "idp-human-interaction-full-1p8x"
+      ],
+      "title": "Human-robot workspace interactions: full recording",
+      "kind": "video",
+      "category": "Rollouts & diagnostics",
+      "src": "assets/idp-human-interaction-full-1p8x.mp4",
+      "thumbnail": "assets/idp-human-interaction-highlight-thumb.png",
+      "caption": "Full recording of human-robot workspace interactions (1.8× speed).",
+      "file_sha256": "93d24cb351988247b235e78458157f149ed24283101c5e6e5ed6056a10175ec0",
+      "bytes": 38647551,
+      "sha256": "93d24cb351988247b235e78458157f149ed24283101c5e6e5ed6056a10175ec0",
+      "thumbnail_sha256": "bfa92c17ae082da20977cb88c329a80e527dba4116079cd72eb750bf57835af5"
+    },
+    {
       "id": "idp-human-interaction-highlight",
       "aliases": [
         "idp-human-interaction-highlight"

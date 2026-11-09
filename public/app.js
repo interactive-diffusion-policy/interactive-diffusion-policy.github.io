@@ -96,7 +96,7 @@ if (hero) {
   const video = heroVideo;
   const revision = '?v=' + hero.sha256.slice(0, 12);
   video.src = hero.src + revision;
-  const autoplay = ['idp-human-interaction-highlight', 'idp-research-montage', 'idp-home-teaser'].includes(hero.id);
+  const autoplay = ['idp-human-interaction-full-1p8x', 'idp-human-interaction-highlight', 'idp-research-montage', 'idp-home-teaser'].includes(hero.id);
   const widescreen = autoplay || ['idp-project-video', 'idp-focused-highlight'].includes(hero.id);
   video.classList.toggle('research-montage', widescreen);
   video.classList.toggle('comparison-edit', !widescreen);

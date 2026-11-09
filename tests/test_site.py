@@ -119,19 +119,20 @@ class PreviewTests(unittest.TestCase):
         self.assertNotIn("Awaiting review", html)
         self.assertIn("Coming soon.", html)
 
-    def test_human_interaction_video_is_the_hero(self):
+    def test_full_human_interaction_video_is_the_hero(self):
         root = Path(__file__).resolve().parents[1]
         html = (root / "public/index.html").read_text(encoding="utf-8")
         catalog = json.loads((root / "public/catalog.json").read_text(encoding="utf-8"))
         hero = re.search(r'<video\b[^>]*id="hero-video"[^>]*>', html)
         self.assertIsNotNone(hero)
-        hero_id = "idp-human-interaction-highlight"
+        hero_id = "idp-human-interaction-full-1p8x"
         self.assertIn(f'data-hero="{hero_id}"', hero.group())
         asset = next(a for a in catalog["assets"] if a["id"] == hero_id)
         self.assertEqual(asset["kind"], "video")
         self.assertEqual(asset["src"], f"assets/{hero_id}.mp4")
         note = re.search(r'<p class="teaser-note">(.*?)</p>', html, re.S)
         self.assertEqual(note.group(1), asset["caption"])
+        self.assertIn("1.8× speed", note.group(1))
 
 
 if __name__ == "__main__":
