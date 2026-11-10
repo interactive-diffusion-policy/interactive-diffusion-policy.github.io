@@ -170,6 +170,14 @@ class PreviewTests(unittest.TestCase):
         html = (root / "public/index.html").read_text(encoding="utf-8")
         self.assertIn("Wide-range pick-and-place on a single-arm manipulator.", html)
 
+    def test_media_dialog_urls_carry_content_revisions(self):
+        root = Path(__file__).resolve().parents[1]
+        js = (root / "public/app.js").read_text(encoding="utf-8")
+        dialog = re.search(r"function openMedia\(.*?\n}\n", js, re.S).group()
+        self.assertIn("revisioned(asset.src, asset.file_sha256)", dialog)
+        self.assertIn("revisioned(asset.thumbnail, asset.thumbnail_sha256)", dialog)
+        self.assertNotRegex(dialog, r"\.(?:src|poster) = asset\.(?:src|thumbnail);")
+
     def test_trajectory_analysis_captions_omit_sync_details(self):
         root = Path(__file__).resolve().parents[1]
         catalog = json.loads((root / "public/catalog.json").read_text(encoding="utf-8"))

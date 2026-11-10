@@ -12,6 +12,9 @@ function el(tag, className, text) {
   return node;
 }
 
+// A content hash in the URL keeps browsers from reusing a cached copy after a file is replaced.
+const revisioned = (path, hash) => hash ? `${path}?v=${hash.slice(0, 12)}` : path;
+
 function openMedia(asset, startTime = 0) {
   document.querySelectorAll('video').forEach(video => video.pause());
   const area = document.getElementById('dialog-media');
@@ -24,11 +27,11 @@ function openMedia(asset, startTime = 0) {
     downloadLink.textContent = 'Download ↓';
   }
   if (asset.kind === 'figure') {
-    const img = new Image(); img.src = asset.src; img.alt = asset.title; area.append(img);
+    const img = new Image(); img.src = revisioned(asset.src, asset.file_sha256); img.alt = asset.title; area.append(img);
   } else if (asset.kind === 'video') {
     const video = document.createElement('video');
-    video.src = asset.src; video.controls = true; video.playsInline = true; video.preload = 'metadata';
-    if (asset.thumbnail) video.poster = asset.thumbnail;
+    video.src = revisioned(asset.src, asset.file_sha256); video.controls = true; video.playsInline = true; video.preload = 'metadata';
+    if (asset.thumbnail) video.poster = revisioned(asset.thumbnail, asset.thumbnail_sha256);
     if (startTime > 0) {
       video.addEventListener('loadedmetadata', () => {
         if (Number.isFinite(video.duration)) video.currentTime = Math.min(startTime, Math.max(0, video.duration - .05));
