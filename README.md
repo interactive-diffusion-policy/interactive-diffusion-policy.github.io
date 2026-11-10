@@ -70,9 +70,12 @@ author names is available.
 Media preserve the distinction between autonomous execution and human-assisted
 data collection. Do not relabel one as the other.
 
-The current highlight is the full original recording shown in the two-event
-comparison. It is encoded without audio and plays at 1.8x recorded speed at
-the browser's default playback rate. The earlier two-excerpt edit is retained.
+The current highlight is an annotated edit of the human-robot workspace
+interaction recording (110.8 s, 1920x1080 H.264 with an AAC audio track; the
+page starts it muted). On-screen labels mark proximity sensing and RMPflow
+avoidance, and badges mark 1x and 2x segments. Its poster is the first frame.
+The previous highlight, the full original recording at 1.8x speed, and the
+earlier two-excerpt edit are retained in the catalog.
 The previous 30.708-second teaser uses two recorded trials. `tools/hero-video.json`
 preserves the source windows: DGB 3-20 s at 1x, DGB 32-48.3 s at 2x, and SAO
 33-44 s at 2x. Render with the local `ffmpeg-skill` `render.py` and review the

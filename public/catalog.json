@@ -1,6 +1,22 @@
 {
-  "updated": "2026-11-09",
+  "updated": "2026-11-10",
   "assets": [
+    {
+      "id": "idp-human-interaction-annotated",
+      "aliases": [
+        "idp-human-interaction-annotated"
+      ],
+      "title": "Human-robot workspace interactions: annotated edit",
+      "kind": "video",
+      "category": "Rollouts & diagnostics",
+      "src": "assets/idp-human-interaction-annotated.mp4",
+      "thumbnail": "assets/idp-human-interaction-annotated-thumb.jpg",
+      "caption": "Human-robot interactions: proximity sensing triggers RMPflow avoidance, then the robot resumes its task (1× and 2× speed).",
+      "file_sha256": "1c54934d40e5ee96ba5548556d4d9f86985c34499130fb928a4a6fc3e5d3e660",
+      "bytes": 72623688,
+      "sha256": "1c54934d40e5ee96ba5548556d4d9f86985c34499130fb928a4a6fc3e5d3e660",
+      "thumbnail_sha256": "53b24a077a7327713384b423bfb13b6217541f079b7c5e9c2f3e30bb78c03dee"
+    },
     {
       "id": "idp-human-interaction-full-1p8x",
       "aliases": [
