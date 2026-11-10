@@ -107,11 +107,11 @@
       "category": "Rollouts & diagnostics",
       "src": "assets/fig9-sync-dgb-dp-rmp-lpb.mp4",
       "thumbnail": "assets/fig9-sync-dgb-dp-rmp-lpb-thumb.webp",
-      "caption": "Absolute-time synchronized external video and measured TCP trajectory over expert demonstrations.",
-      "sha256": "ab7bcfe05ebfe1ba434ff7aa836a22517e11dea4a384988cabc189e92ac02a88",
-      "bytes": 2392690,
-      "file_sha256": "ab7bcfe05ebfe1ba434ff7aa836a22517e11dea4a384988cabc189e92ac02a88",
-      "thumbnail_sha256": "91fbd71969099ffdf0fd4e501f6cff38173c5933486fea900eb3c9c33c8dd9b6"
+      "caption": "External camera video with the measured TCP trajectory; gray lines show the expert demonstrations.",
+      "sha256": "39ea2fda1c5afc74f217e5b5933d31cce7960e454f53ed42ec68ce3a908461e3",
+      "bytes": 4613968,
+      "file_sha256": "39ea2fda1c5afc74f217e5b5933d31cce7960e454f53ed42ec68ce3a908461e3",
+      "thumbnail_sha256": "5d5ff9e099de169a0523f3f93ea2bc53f974189756dc090baa2fb3e1e0136704"
     },
     {
       "id": "fig9-sync-dgb-dp-rmp",
@@ -123,11 +123,11 @@
       "category": "Rollouts & diagnostics",
       "src": "assets/fig9-sync-dgb-dp-rmp.mp4",
       "thumbnail": "assets/fig9-sync-dgb-dp-rmp-thumb.webp",
-      "caption": "Absolute-time synchronized external video and measured TCP trajectory over expert demonstrations.",
-      "sha256": "c5ba1ded0c4864a017db92d5c91ca9bc867e955e7835bb2ebd6a7180b50a23c5",
-      "bytes": 2175414,
-      "file_sha256": "c5ba1ded0c4864a017db92d5c91ca9bc867e955e7835bb2ebd6a7180b50a23c5",
-      "thumbnail_sha256": "ecbc183e97d67257c058f62f0972112dc95d80a8186d17f0ecf5108ea9d540cc"
+      "caption": "External camera video with the measured TCP trajectory; gray lines show the expert demonstrations.",
+      "sha256": "dad026a095cd6b15247042cfe034e0082a2224d2b2eb11673c300fa92b672f2f",
+      "bytes": 4181312,
+      "file_sha256": "dad026a095cd6b15247042cfe034e0082a2224d2b2eb11673c300fa92b672f2f",
+      "thumbnail_sha256": "a8b5f9c1e5a874f5484db5f9c99b855ff148b4cf193d2969ac95c4567b5eeb63"
     },
     {
       "id": "fig9-sync-dgb-dp-stop",
@@ -139,11 +139,11 @@
       "category": "Rollouts & diagnostics",
       "src": "assets/fig9-sync-dgb-dp-stop.mp4",
       "thumbnail": "assets/fig9-sync-dgb-dp-stop-thumb.webp",
-      "caption": "Absolute-time synchronized external video and measured TCP trajectory over expert demonstrations.",
-      "sha256": "0d0a1ea2225b60c5b022cf50ee0ff06af7433ac352c439dce100854227bec7d0",
-      "bytes": 1027988,
-      "file_sha256": "0d0a1ea2225b60c5b022cf50ee0ff06af7433ac352c439dce100854227bec7d0",
-      "thumbnail_sha256": "8d03a9cbe9a034c7783c45107071e1081814edec7ffc0c26bdbb20df3c97ddd3"
+      "caption": "External camera video with the measured TCP trajectory; gray lines show the expert demonstrations.",
+      "sha256": "e8fab199350064f7ee0ee9ca072c109a3639238ed6b56f0b256d261ea7410240",
+      "bytes": 1922173,
+      "file_sha256": "e8fab199350064f7ee0ee9ca072c109a3639238ed6b56f0b256d261ea7410240",
+      "thumbnail_sha256": "616081c76ea9e79db5761dc4acb1e44fe61b539f44b2a0eec239637217a36dab"
     },
     {
       "id": "fig9-sync-sao-dp-rmp-lpb",
@@ -155,11 +155,11 @@
       "category": "Rollouts & diagnostics",
       "src": "assets/fig9-sync-sao-dp-rmp-lpb.mp4",
       "thumbnail": "assets/fig9-sync-sao-dp-rmp-lpb-thumb.webp",
-      "caption": "External video and measured TCP trajectory with estimated alignment.",
-      "sha256": "33e07ed3495f4667712d836b0142f2f3fde84859094afebba766fbbacf73d82c",
-      "bytes": 1997925,
-      "file_sha256": "33e07ed3495f4667712d836b0142f2f3fde84859094afebba766fbbacf73d82c",
-      "thumbnail_sha256": "7bdcdc3f3165ea8651b64f07fd9fe03bd521e2bd9c96b575fc089c1ee07d3347"
+      "caption": "External camera video with the measured TCP trajectory; gray lines show the expert demonstrations.",
+      "sha256": "643072afdea91d69a69983425b13d56617aa21ab23693d6f9c1608c305175784",
+      "bytes": 3916933,
+      "file_sha256": "643072afdea91d69a69983425b13d56617aa21ab23693d6f9c1608c305175784",
+      "thumbnail_sha256": "abc63fb1a6310dabdc376089fe54a5744c386b29a317018381f41ab8dba48933"
     },
     {
       "id": "fig9-sync-sao-dp-rmp",
@@ -171,11 +171,11 @@
       "category": "Rollouts & diagnostics",
       "src": "assets/fig9-sync-sao-dp-rmp.mp4",
       "thumbnail": "assets/fig9-sync-sao-dp-rmp-thumb.webp",
-      "caption": "Absolute-time synchronized external video and measured TCP trajectory over expert demonstrations.",
-      "sha256": "9d3a13c30422f90db9533bc105def67a262226c7aedfdcc3eb069706e7ad1beb",
-      "bytes": 2148287,
-      "file_sha256": "9d3a13c30422f90db9533bc105def67a262226c7aedfdcc3eb069706e7ad1beb",
-      "thumbnail_sha256": "4e3287831f4147f04e5e603ffd469c5c5b5c8a5f798542e12ec0da5be2cbbe47"
+      "caption": "External camera video with the measured TCP trajectory; gray lines show the expert demonstrations.",
+      "sha256": "656a41152b33965fe90305639489e107bfe5d00b690fc42fa83bf59fbee5906b",
+      "bytes": 4164030,
+      "file_sha256": "656a41152b33965fe90305639489e107bfe5d00b690fc42fa83bf59fbee5906b",
+      "thumbnail_sha256": "39427d4075e59702f68fde3baac511e6289526cd4c89af4f2c5439a22c5981b9"
     },
     {
       "id": "fig9-sync-sao-dp-stop",
@@ -187,11 +187,11 @@
       "category": "Rollouts & diagnostics",
       "src": "assets/fig9-sync-sao-dp-stop.mp4",
       "thumbnail": "assets/fig9-sync-sao-dp-stop-thumb.webp",
-      "caption": "Absolute-time synchronized external video and measured TCP trajectory over expert demonstrations.",
-      "sha256": "8aaa79585ef99414aa95387b6b41e17a92c9d89436a75277696ca1178f36f273",
-      "bytes": 1251030,
-      "file_sha256": "8aaa79585ef99414aa95387b6b41e17a92c9d89436a75277696ca1178f36f273",
-      "thumbnail_sha256": "5d7b47a1946811e3b6809d91c5b54cd86d4c3949efb805067cb4d76088effe16"
+      "caption": "External camera video with the measured TCP trajectory; gray lines show the expert demonstrations.",
+      "sha256": "517a7f27aa24913c4d69d72597eca9d7d8c638c209c61d15506242a602f0d2bc",
+      "bytes": 2313635,
+      "file_sha256": "517a7f27aa24913c4d69d72597eca9d7d8c638c209c61d15506242a602f0d2bc",
+      "thumbnail_sha256": "ebad28d7138d314a7202309a424010f361ab4e132040babce36d1ab662742d61"
     },
     {
       "id": "fig9-robot-dgb-dp-rmp-lpb",

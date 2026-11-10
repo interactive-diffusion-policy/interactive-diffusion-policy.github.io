@@ -83,6 +83,11 @@ result before updating the catalog. The full supplementary video remains under
 the highlight. The DGB/SAO comparison controls play separate recordings together;
 they do not imply paired starts or hardware time synchronization.
 
+The six trajectory-analysis videos (`fig9-sync-*`) were edited in place: the
+dataset tag in the "Gray: expert demonstrations" legend and the bottom
+sync-offset line were removed from every frame, and their posters were
+re-rendered.
+
 The previous public paper-page route is being retired separately from this
 repository. The personal research portfolio and robotics implementation
 repositories are separate projects.

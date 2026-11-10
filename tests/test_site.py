@@ -170,6 +170,15 @@ class PreviewTests(unittest.TestCase):
         html = (root / "public/index.html").read_text(encoding="utf-8")
         self.assertIn("Wide-range pick-and-place on a single-arm manipulator.", html)
 
+    def test_trajectory_analysis_captions_omit_sync_details(self):
+        root = Path(__file__).resolve().parents[1]
+        catalog = json.loads((root / "public/catalog.json").read_text(encoding="utf-8"))
+        analyses = [a for a in catalog["assets"] if a["id"].startswith("fig9-sync-")]
+        self.assertEqual(len(analyses), 6)
+        for asset in analyses:
+            with self.subTest(asset=asset["id"]):
+                self.assertNotRegex(asset["caption"], r"(?i)synchroni[sz]ed|alignment|0624")
+
     def test_title_block_logo_and_affiliation(self):
         root = Path(__file__).resolve().parents[1]
         html = (root / "public/index.html").read_text(encoding="utf-8")
