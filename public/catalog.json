@@ -334,54 +334,6 @@
       "thumbnail_sha256": "b6ae43bc16608d06268cfd3199c32e983fdc1455261541454ebae4444001e36f"
     },
     {
-      "id": "notion-lpb-avoidance-diagnostic",
-      "aliases": [
-        "notion-lpb-avoidance-diagnostic"
-      ],
-      "title": "LPB avoidance diagnostic",
-      "kind": "video",
-      "category": "Proximity sensing",
-      "src": "assets/notion-lpb-avoidance-diagnostic.mp4",
-      "thumbnail": "assets/notion-lpb-avoidance-diagnostic-thumb.webp",
-      "caption": "Screen-recorded qualitative diagnostic showing observations, trajectories and runtime plots.",
-      "sha256": "3871ae66207c648943a9b895cc6dd9e2c808fe8c5e8ced01be2d520921994bd5",
-      "bytes": 1057629,
-      "file_sha256": "3871ae66207c648943a9b895cc6dd9e2c808fe8c5e8ced01be2d520921994bd5",
-      "thumbnail_sha256": "2daff6ff30f1bd09d3dee4fe64fde18616a50401db28db758a4df0e2200b4b0e"
-    },
-    {
-      "id": "notion-lpb-rollout-diagnostic-a",
-      "aliases": [
-        "notion-lpb-rollout-diagnostic-a"
-      ],
-      "title": "LPB rollout diagnostic A",
-      "kind": "video",
-      "category": "Proximity sensing",
-      "src": "assets/notion-lpb-rollout-diagnostic-a.mp4",
-      "thumbnail": "assets/notion-lpb-rollout-diagnostic-a-thumb.webp",
-      "caption": "Runtime visualization from one recorded inference run.",
-      "sha256": "89a5290dafd1c613f83b47d477080e3e6c3bd890685a32fb399e12865f72a9f1",
-      "bytes": 1830714,
-      "file_sha256": "89a5290dafd1c613f83b47d477080e3e6c3bd890685a32fb399e12865f72a9f1",
-      "thumbnail_sha256": "198e9c519c110ad3cbd8100198b7eb9e1211798f537bdfa45af33ca972372c95"
-    },
-    {
-      "id": "notion-lpb-rollout-diagnostic-b",
-      "aliases": [
-        "notion-lpb-rollout-diagnostic-b"
-      ],
-      "title": "LPB rollout diagnostic B",
-      "kind": "video",
-      "category": "Proximity sensing",
-      "src": "assets/notion-lpb-rollout-diagnostic-b.mp4",
-      "thumbnail": "assets/notion-lpb-rollout-diagnostic-b-thumb.webp",
-      "caption": "Runtime visualization from a second recorded inference run.",
-      "sha256": "a1c742b4e331ea2c7cd67859f96982674e0f8ace13bc9a3d378a72ff32f2619a",
-      "bytes": 2126175,
-      "file_sha256": "a1c742b4e331ea2c7cd67859f96982674e0f8ace13bc9a3d378a72ff32f2619a",
-      "thumbnail_sha256": "ca337f906e4f8704ab70e36e3b0a9983518d18f37bee81116972b0ccfbb5ed63"
-    },
-    {
       "id": "paper-overview",
       "aliases": [
         "paper-overview"

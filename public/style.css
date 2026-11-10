@@ -140,8 +140,6 @@ h2.title{margin:0 0 1.5rem;font-size:2rem;line-height:1.125;letter-spacing:norma
 .analysis-disclosure{margin-top:1.8rem;padding:.7rem 0;border-top:1px solid var(--rule);border-bottom:1px solid var(--rule)}
 .analysis-disclosure summary{cursor:pointer;font-size:.95rem}
 .analysis-disclosure[open] summary{margin-bottom:1.5rem}
-.diagnostic-grid{grid-template-columns:minmax(0,1fr);max-width:760px;margin-inline:auto;gap:2.2rem}
-.diagnostic-card video{aspect-ratio:auto;height:auto;object-fit:contain;background:#fff}
 .card-body{padding:.6rem 0 0}
 .video-label{display:block;margin-bottom:.15rem;font-family:var(--sans);font-size:.72rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--faint)}
 .video-card h3{margin:0 0 .15rem;font-size:1rem}

@@ -341,39 +341,26 @@ const proximityVideos = [
   ['notion-proximity-close-approach', 'Close-proximity interaction',
     'External view of a person approaching the sensorized robot during policy execution.'],
   ['notion-proximity-task-interaction', 'Proximity interaction during task execution',
-    'External view of close human interaction while the robot continues the task sequence.'],
-  ['notion-lpb-avoidance-diagnostic', 'LPB avoidance diagnostic',
-    'Recorded observations, trajectories and runtime plots for qualitative inspection.'],
-  ['notion-lpb-rollout-diagnostic-a', 'LPB rollout diagnostic A',
-    'Runtime visualization from one recorded inference run.'],
-  ['notion-lpb-rollout-diagnostic-b', 'LPB rollout diagnostic B',
-    'Runtime visualization from a second recorded inference run.']
+    'External view of close human interaction while the robot continues the task sequence.']
 ];
 const proximityRoot = document.getElementById('proximity-videos');
 if (proximityRoot) {
   const externalGrid = el('div', 'video-grid two');
-  const diagnosticGrid = el('div', 'video-grid diagnostic-grid');
-  proximityVideos.forEach(([id, title, caption], index) => {
+  proximityVideos.forEach(([id, title, caption]) => {
     const asset = byId(id);
     if (!asset) return;
     used.add(asset.id);
-    const card = videoCard(asset, {
+    externalGrid.append(videoCard(asset, {
       title,
       caption,
-      label: index < 2 ? 'External recording' : 'Runtime diagnostic',
+      label: 'External recording',
       muted: true,
       preload: 'none',
       ariaLabel: title,
-      className: index < 2 ? 'video-card robot-card' : 'video-card diagnostic-card',
-    });
-    (index < 2 ? externalGrid : diagnosticGrid).append(card);
+      className: 'video-card robot-card',
+    }));
   });
-  const details = el('details', 'analysis-disclosure');
-  details.append(el('summary', '', 'Inspect observation and guidance plots'), diagnosticGrid);
-  details.addEventListener('toggle', () => {
-    if (!details.open) details.querySelectorAll('video').forEach(video => video.pause());
-  });
-  proximityRoot.replaceChildren(externalGrid, details);
+  proximityRoot.replaceChildren(externalGrid);
 }
 
 document.addEventListener('play', e => {
