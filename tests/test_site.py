@@ -161,6 +161,15 @@ class PreviewTests(unittest.TestCase):
         self.assertEqual([a["id"] for a in catalog["assets"] if a["id"].startswith("notion-lpb-")], [])
         self.assertEqual(list((root / "public/assets").glob("notion-lpb-*")), [])
 
+    def test_robot_is_called_a_manipulator(self):
+        root = Path(__file__).resolve().parents[1]
+        for name in ["public/index.html", "public/app.js", "public/catalog.json"]:
+            with self.subTest(file=name):
+                text = (root / name).read_text(encoding="utf-8")
+                self.assertNotRegex(text, r"(?i)\bRB-?10\b|Rainbow Robotics")
+        html = (root / "public/index.html").read_text(encoding="utf-8")
+        self.assertIn("Wide-range pick-and-place on a single-arm manipulator.", html)
+
     def test_title_block_logo_and_affiliation(self):
         root = Path(__file__).resolve().parents[1]
         html = (root / "public/index.html").read_text(encoding="utf-8")

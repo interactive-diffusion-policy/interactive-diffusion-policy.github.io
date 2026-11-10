@@ -14,7 +14,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;600&family=Noto+Sans:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
   <link rel="icon" href="icon.svg" type="image/svg+xml"><link rel="stylesheet" href="style.css?v=5a4af5676662">
-  <script defer src="catalog.js?v=f13a87556564"></script><script defer src="app.js?v=1d11e601c229"></script>
+  <script defer src="catalog.js?v=41b88db2f8d8"></script><script defer src="app.js?v=1d11e601c229"></script>
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
@@ -100,8 +100,8 @@
   </div>
   <div class="figure-pair sensor-hardware">
     <figure class="paper-figure" data-feature="paper-sensor-module">
-      <button class="figure-open" type="button" aria-label="Enlarge RB10 sensor module"><img alt="RB10 sensor placement and exploded capacitive and ToF module" loading="lazy"></button>
-      <figcaption>Proximity sensor modules mounted on the RB10 links, with an exploded view of one module. Each module combines a capacitive sensing PCB, which detects nearby people and objects through changes in the electric field, with a ToF sensor that provides reference distances for calibrating the capacitive estimate.</figcaption>
+      <button class="figure-open" type="button" aria-label="Enlarge manipulator sensor module"><img alt="Sensor placement on the manipulator and exploded capacitive and ToF module" loading="lazy"></button>
+      <figcaption>Proximity sensor modules mounted on the manipulator links, with an exploded view of one module. Each module combines a capacitive sensing PCB, which detects nearby people and objects through changes in the electric field, with a ToF sensor that provides reference distances for calibrating the capacitive estimate.</figcaption>
     </figure>
     <figure class="paper-figure" data-feature="paper-sensor-calibration">
       <button class="figure-open" type="button" aria-label="Enlarge distance estimation experiment"><img alt="Moving metal specimen, reference distance, sensor estimate, and error" loading="lazy"></button>
@@ -114,7 +114,7 @@
     <p class="teaser-note">Jig motion and distance response · 8× playback.</p>
   </details>
   <figure class="collection-film sensor-response">
-    <div class="media-frame"><video controls muted playsinline preload="none" data-video="sensor-reactive-avoidance" aria-label="Proximity-driven RB10 obstacle avoidance"></video></div>
+    <div class="media-frame"><video controls muted playsinline preload="none" data-video="sensor-reactive-avoidance" aria-label="Proximity-driven manipulator obstacle avoidance"></video></div>
     <figcaption>An obstacle on a pole approaches different points along the arm. The link-mounted proximity sensors detect it, and the arm moves locally away from the side it approaches.</figcaption>
   </figure>
   <details class="analysis-disclosure"><summary>Watch close-proximity interactions</summary><div id="proximity-videos"></div></details>
@@ -144,10 +144,10 @@
 
 <section class="section numbered" id="experiments"><div class="wrap">
   <h2 class="title">Real-Robot Experiments</h2>
-  <p class="section-lead">Wide-range pick-and-place on a Rainbow Robotics RB10.</p>
+  <p class="section-lead">Wide-range pick-and-place on a single-arm manipulator.</p>
   <figure class="paper-figure setup-figure" data-feature="paper-setup">
-    <button class="figure-open" type="button" aria-label="Enlarge experimental setup"><img alt="RB10 pick-and-place workspace with vision cameras and proximity sensors" loading="lazy"></button>
-    <figcaption>The RB10 picks an object from the table on the right and places it in the box on the left, a wide-range motion across the workspace. Vision sensors on the wrist and at the workspace give the policy its RGB observations, and the proximity sensors on the arm links detect obstacles.</figcaption>
+    <button class="figure-open" type="button" aria-label="Enlarge experimental setup"><img alt="Manipulator pick-and-place workspace with vision cameras and proximity sensors" loading="lazy"></button>
+    <figcaption>The manipulator picks an object from the table on the right and places it in the box on the left, a wide-range motion across the workspace. Vision sensors on the wrist and at the workspace give the policy its RGB observations, and the proximity sensors on the arm links detect obstacles.</figcaption>
   </figure>
   <div class="subsection">
     <h3 class="subhead">Recovery dataset ablation</h3>
