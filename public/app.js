@@ -161,17 +161,6 @@ document.querySelectorAll('[data-feature]').forEach(figure => {
   }));
 });
 
-const features = [
-  ['ral-guidance-inspection', 'Guidance record inspection', 'Runtime reconstruction of current observation, nearest expert reference, and policy guidance state from saved inference records.']
-];
-const featuredRoot = document.getElementById('featured-videos');
-features.forEach(([id, title, caption], i) => {
-  const a = byId(id);
-  if (!a) return;
-  used.add(a.id);
-  featuredRoot.append(videoCard(a, { title, caption, label: i % 2 ? 'Diagnostic view' : 'Real-robot recording', preload: 'none' }));
-});
-
 const trajectoryVideos = [
   ['fig9-sync-dgb-dp-stop', 'DGB', 'DP + Stop', 'Stop during intrusion, then continue the task.'],
   ['fig9-sync-dgb-dp-rmp', 'DGB', 'DP + RMPflow', 'Reactive avoidance with policy continuation.'],

@@ -82,22 +82,6 @@
       "thumbnail_sha256": "04498453bfdc74d65d5e8b072f00b40f905e74689ba6e0be00f9ed6506492285"
     },
     {
-      "id": "ral-guidance-inspection",
-      "aliases": [
-        "ral-guidance-inspection"
-      ],
-      "title": "Guidance record inspection",
-      "kind": "video",
-      "category": "Rollouts & diagnostics",
-      "src": "assets/ral-guidance-inspection.mp4",
-      "thumbnail": "assets/ral-guidance-inspection-thumb.webp",
-      "caption": "Runtime reconstruction from saved inference records showing current observation, nearest expert reference, and policy guidance state.",
-      "sha256": "ba58a46f44b9a8f4eafdc8a3b1cab5be702e870383f681a1da3063bd18a221c0",
-      "bytes": 1503700,
-      "file_sha256": "ba58a46f44b9a8f4eafdc8a3b1cab5be702e870383f681a1da3063bd18a221c0",
-      "thumbnail_sha256": "a97c60dc93025660c16673f95f4b47f6a8bcac6f14db723fbada1e9c0c20eba1"
-    },
-    {
       "id": "fig9-sync-dgb-dp-rmp-lpb",
       "aliases": [
         "fig9-sync-dgb-dp-rmp-lpb"

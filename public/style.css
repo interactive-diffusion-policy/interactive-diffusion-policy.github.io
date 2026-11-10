@@ -133,7 +133,6 @@ h2.title{margin:0 0 1.5rem;font-size:2rem;line-height:1.125;letter-spacing:norma
 .robot-card .card-heading h3{margin:0;font-size:1rem}
 .robot-card .card-heading .video-label{margin:0;font-size:.68rem;white-space:nowrap}
 .video-card video{width:100%;aspect-ratio:16/9;object-fit:contain;border:1px solid var(--rule);background:#fff}
-.video-grid.single .video-card video{aspect-ratio:8/5}
 .video-actions{display:flex;flex-wrap:wrap;gap:.4rem 1rem;margin-top:.7rem}
 .video-action{padding:.2rem 0;border:0;border-bottom:1px solid currentColor;background:transparent;color:var(--link);font-family:var(--sans);font-size:.8rem;line-height:1.5}
 .video-action:hover{color:var(--ink)}
@@ -190,8 +189,7 @@ tr.ours .method-id{color:var(--ink)}
 
 /* Video controls clearance for baked-in diagnostics & legends */
 .collection-film .media-frame video,
-.video-card.trajectory-card video,
-#featured-videos video{padding-bottom:24px;background:#fafcfc}
+.video-card.trajectory-card video{padding-bottom:24px;background:#fafcfc}
 
 /* BibTeX */
 .citation-header{display:flex;align-items:center;justify-content:space-between;gap:1rem;margin-bottom:.75rem}

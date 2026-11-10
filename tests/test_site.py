@@ -154,12 +154,17 @@ class PreviewTests(unittest.TestCase):
 
     def test_runtime_diagnostic_videos_are_removed(self):
         root = Path(__file__).resolve().parents[1]
+        html = (root / "public/index.html").read_text(encoding="utf-8")
         js = (root / "public/app.js").read_text(encoding="utf-8")
         catalog = json.loads((root / "public/catalog.json").read_text(encoding="utf-8"))
         self.assertNotIn("Inspect observation and guidance plots", js)
-        self.assertNotIn("notion-lpb-", js)
-        self.assertEqual([a["id"] for a in catalog["assets"] if a["id"].startswith("notion-lpb-")], [])
-        self.assertEqual(list((root / "public/assets").glob("notion-lpb-*")), [])
+        self.assertNotIn("Inspect the observation and guidance timeline", html)
+        self.assertNotIn("featured-videos", html + js)
+        for prefix in ["notion-lpb-", "ral-guidance-inspection"]:
+            with self.subTest(prefix=prefix):
+                self.assertNotIn(prefix, js)
+                self.assertEqual([a["id"] for a in catalog["assets"] if a["id"].startswith(prefix)], [])
+                self.assertEqual(list((root / "public/assets").glob(prefix + "*")), [])
 
     def test_robot_is_called_a_manipulator(self):
         root = Path(__file__).resolve().parents[1]
