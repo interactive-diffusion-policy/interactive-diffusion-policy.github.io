@@ -90,16 +90,13 @@ function videoCard(asset, { title, caption, label, muted = false, preload = 'non
   return article;
 }
 
-// Assets already embedded in the main sections stay out of the supplementary grid.
-const used = new Set();
 const heroVideo = document.getElementById('hero-video');
 const hero = byId(heroVideo.dataset.hero) || byId('idp-home-teaser') || byId('idp-project-video');
 if (hero) {
-  used.add(hero.id);
   const video = heroVideo;
   const revision = '?v=' + hero.sha256.slice(0, 12);
   video.src = hero.src + revision;
-  const autoplay = ['idp-human-interaction-annotated', 'idp-human-interaction-full-1p8x', 'idp-human-interaction-highlight', 'idp-research-montage', 'idp-home-teaser'].includes(hero.id);
+  const autoplay = ['idp-human-interaction-annotated', 'idp-human-interaction-full-1p8x', 'idp-human-interaction-highlight', 'idp-home-teaser'].includes(hero.id);
   const widescreen = autoplay || ['idp-project-video', 'idp-focused-highlight'].includes(hero.id);
   video.classList.toggle('research-montage', widescreen);
   video.classList.toggle('comparison-edit', !widescreen);
@@ -129,7 +126,6 @@ document.querySelectorAll('[data-hero-time]').forEach(button => {
 document.querySelectorAll('video[data-video]').forEach(video => {
   const a = byId(video.dataset.video);
   if (!a) return;
-  used.add(a.id);
   const v = '?v=' + a.sha256.slice(0, 12);
   video.src = a.src + v;
   video.poster = a.thumbnail ? a.thumbnail + v : '';
@@ -149,7 +145,6 @@ document.querySelectorAll('a[data-open-media]').forEach(link => {
 document.querySelectorAll('[data-feature]').forEach(figure => {
   const a = byId(figure.dataset.feature);
   if (!a) { figure.hidden = true; return; }
-  used.add(a.id);
   const img = figure.querySelector('img');
   if (a.width) { img.width = a.width; img.height = a.height; }
   img.src = a.src;
@@ -230,8 +225,6 @@ trajectoryTasks.forEach(([task, label]) => {
     const robot = byId(id.replace('fig9-sync-', 'fig9-robot-'));
     const a = robot || analysis;
     if (!a) return null;
-    used.add(a.id);
-    if (analysis) used.add(analysis.id);
     return videoCard(a, { title, caption, label: robot ? '1x recorded speed' : 'Trajectory analysis',
       muted: true, ariaLabel: `${task}: ${title}`,
       className: `video-card robot-card${title === 'IDP' ? ' robot-card--ours' : ''}`, headingFirst: true,
@@ -291,7 +284,6 @@ if (sensingRoot) {
   sensingComparisons.forEach(([id, title, caption]) => {
     const asset = byId(id);
     if (!asset) return;
-    used.add(asset.id);
     const tab = el('button', 'segment', title);
     tab.type = 'button';
     tab.id = `tab-${id}`;
@@ -341,7 +333,6 @@ if (proximityRoot) {
   proximityVideos.forEach(([id, title, caption]) => {
     const asset = byId(id);
     if (!asset) return;
-    used.add(asset.id);
     externalGrid.append(videoCard(asset, {
       title,
       caption,
@@ -370,60 +361,4 @@ document.querySelectorAll('details').forEach(details => {
   });
 });
 
-function card(item) {
-  const a = byId(item.id);
-  if (!a) return null;
-  const cleanAsset = {
-    ...a,
-    title: item.title || a.title,
-    caption: item.caption || a.caption
-  };
-  const article = el('article', 'asset-card');
-  const button = el('button', 'asset-cover');
-  button.type = 'button';
-  button.setAttribute('aria-label', `Open ${cleanAsset.title}`);
-  if (cleanAsset.thumbnail) {
-    const img = new Image(); img.src = cleanAsset.thumbnail; img.alt = cleanAsset.title; img.loading = 'lazy'; img.decoding = 'async';
-    button.append(img);
-  } else {
-    button.append(el('span', 'filetype', cleanAsset.src.split('.').pop().toUpperCase()));
-  }
-  if (cleanAsset.kind === 'video') {
-    const mark = el('span', 'play-mark');
-    mark.setAttribute('aria-hidden', 'true');
-    mark.innerHTML = '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5.5v13l10.5-6.5z"/></svg>';
-    button.append(mark);
-  }
-  button.addEventListener('click', () => openMedia(cleanAsset));
-  const info = el('div', 'asset-info');
-  const link = el('a', '', 'Download ↓');
-  link.href = cleanAsset.src;
-  link.download = '';
-  info.append(el('h3', '', cleanAsset.title), el('p', '', cleanAsset.caption), link);
-  article.append(button, info);
-  return article;
-}
-
 document.querySelectorAll('a[href="#replay"], a[href="replay.html"], #replay, #replay-shell').forEach(node => node.remove());
-
-const supplementaryItems = [
-  {
-    id: 'idp-research-montage',
-    title: 'Multi-view research montage',
-    caption: 'Robot trials, expert demonstrations, and corrective data collection across multiple recordings.'
-  },
-  {
-    id: 'obstacle-interaction-full',
-    title: 'Full obstacle-interaction rollout',
-    caption: 'A complete external-camera recording of task execution with repeated obstacle approaches.'
-  }
-];
-const extras = supplementaryItems
-  .filter(item => !used.has(item.id))
-  .map(card)
-  .filter(Boolean);
-
-const assetsRoot = document.getElementById('assets');
-if (assetsRoot) {
-  assetsRoot.replaceChildren(...extras);
-}

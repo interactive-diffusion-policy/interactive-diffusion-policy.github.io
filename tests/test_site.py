@@ -166,6 +166,23 @@ class PreviewTests(unittest.TestCase):
                 self.assertEqual([a["id"] for a in catalog["assets"] if a["id"].startswith(prefix)], [])
                 self.assertEqual(list((root / "public/assets").glob(prefix + "*")), [])
 
+    def test_supplementary_media_section_is_removed(self):
+        root = Path(__file__).resolve().parents[1]
+        html = (root / "public/index.html").read_text(encoding="utf-8")
+        js = (root / "public/app.js").read_text(encoding="utf-8")
+        css = (root / "public/style.css").read_text(encoding="utf-8")
+        catalog = json.loads((root / "public/catalog.json").read_text(encoding="utf-8"))
+        self.assertNotIn("Supplementary Media", html)
+        self.assertNotIn('id="library"', html)
+        self.assertNotIn('id="assets"', html)
+        self.assertNotIn("supplementaryItems", js)
+        self.assertNotIn(".asset-grid", css)
+        for asset_id in ["idp-research-montage", "obstacle-interaction-full"]:
+            with self.subTest(asset=asset_id):
+                self.assertNotIn(asset_id, js)
+                self.assertNotIn(asset_id, {a["id"] for a in catalog["assets"]})
+                self.assertEqual(list((root / "public/assets").glob(asset_id + "*")), [])
+
     def test_robot_is_called_a_manipulator(self):
         root = Path(__file__).resolve().parents[1]
         for name in ["public/index.html", "public/app.js", "public/catalog.json"]:

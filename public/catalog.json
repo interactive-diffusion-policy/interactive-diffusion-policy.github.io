@@ -50,22 +50,6 @@
       "thumbnail_sha256": "bfa92c17ae082da20977cb88c329a80e527dba4116079cd72eb750bf57835af5"
     },
     {
-      "id": "idp-research-montage",
-      "aliases": [
-        "idp-research-montage"
-      ],
-      "title": "Interactive Diffusion Policy: research montage",
-      "kind": "video",
-      "category": "Rollouts & diagnostics",
-      "src": "assets/idp-research-montage.mp4",
-      "thumbnail": "assets/idp-research-montage-thumb.webp",
-      "caption": "Restored full-data montage. Thin blue/red borders fade in only after each reviewed execution reaches its end or visible successful release. Operator-reviewed outcomes, not an aggregate success-rate estimate. Opening: 2x; data mosaics: condensed; closing: 1x.",
-      "sha256": "53181022e406d00d220c53ad99efe996f9f88234285a9c3560ad23dddb1b7b53",
-      "bytes": 24535265,
-      "file_sha256": "53181022e406d00d220c53ad99efe996f9f88234285a9c3560ad23dddb1b7b53",
-      "thumbnail_sha256": "d66f17e9c1dc3a45ee9830b7959d191129b9ff756fc5f580171a581d13f864de"
-    },
-    {
       "id": "ral-two-interventions",
       "aliases": [
         "ral-two-interventions"
@@ -622,22 +606,6 @@
       "bytes": 5582320,
       "file_sha256": "16f19ecf0f82dc6120457ceeacab808c063422001769c064476878da7c6b9f4f",
       "thumbnail_sha256": "a6c250eaab6de4a6d201c4c458c1759868a6ee6645f5d5523a05888a0a1f3851"
-    },
-    {
-      "id": "obstacle-interaction-full",
-      "aliases": [
-        "obstacle-interaction-full"
-      ],
-      "title": "Full obstacle-interaction rollout",
-      "kind": "video",
-      "category": "Proximity sensing",
-      "src": "assets/obstacle-interaction-full.mp4",
-      "thumbnail": "assets/obstacle-interaction-full-thumb.webp",
-      "caption": "An external-camera recording of task execution with repeated obstacle approaches.",
-      "sha256": "694943e0afaaea74cdd9d01f9fd64348a76b1290f97d9c9646b0e54b7de4331e",
-      "bytes": 21374704,
-      "file_sha256": "694943e0afaaea74cdd9d01f9fd64348a76b1290f97d9c9646b0e54b7de4331e",
-      "thumbnail_sha256": "6c44417759c72414e90d2a72417ee7e59dbb6a4e4e184d3b67f2d5808420da7c"
     }
   ],
   "counts": {
