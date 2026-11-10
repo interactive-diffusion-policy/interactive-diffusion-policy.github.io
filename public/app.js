@@ -142,7 +142,7 @@ document.querySelectorAll('a[data-open-media]').forEach(link => {
   });
 });
 
-// Figure modal uses the visible figure caption and title rather than internal catalog metadata.
+// Figure modal uses the visible figure caption and image description rather than internal catalog metadata.
 document.querySelectorAll('[data-feature]').forEach(figure => {
   const a = byId(figure.dataset.feature);
   if (!a) { figure.hidden = true; return; }
@@ -151,18 +151,10 @@ document.querySelectorAll('[data-feature]').forEach(figure => {
   if (a.width) { img.width = a.width; img.height = a.height; }
   img.src = a.src;
   const figcaption = figure.querySelector('figcaption');
-  const strong = figcaption ? figcaption.querySelector('strong') : null;
-  const visibleTitle = strong
-    ? `${strong.textContent.replace(/:$/, '').trim()}${img.alt ? ' — ' + img.alt : ''}`
-    : (img.alt || a.title);
-  const prefix = strong ? strong.textContent : '';
-  const visibleCaption = (figcaption && prefix)
-    ? figcaption.textContent.replace(prefix, '').trim()
-    : (figcaption ? figcaption.textContent.trim() : a.caption);
   figure.querySelector('button').addEventListener('click', () => openMedia({
     ...a,
-    title: visibleTitle,
-    caption: visibleCaption
+    title: img.alt || a.title,
+    caption: figcaption ? figcaption.textContent.trim() : a.caption
   }));
 });
 

@@ -141,6 +141,17 @@ class PreviewTests(unittest.TestCase):
         self.assertIn("achieved a task success rate of 91.3%.", paragraphs[0])
         self.assertIn("<strong>91.3%</strong>", html)
 
+    def test_captions_are_prose_without_paper_numbering(self):
+        root = Path(__file__).resolve().parents[1]
+        html = (root / "public/index.html").read_text(encoding="utf-8")
+        captions = re.findall(r"<figcaption>(.*?)</figcaption>", html, re.S)
+        captions += re.findall(r'<p id="table1-caption" class="table-caption">(.*?)</p>', html, re.S)
+        self.assertEqual(len(captions), 12)
+        for caption in captions:
+            with self.subTest(caption=caption[:40]):
+                self.assertNotRegex(caption, r"\b(?:Figure|Fig\.|Table)\s*[0-9IVX]+")
+                self.assertNotIn("<strong>", caption)
+
     def test_title_block_logo_and_affiliation(self):
         root = Path(__file__).resolve().parents[1]
         html = (root / "public/index.html").read_text(encoding="utf-8")

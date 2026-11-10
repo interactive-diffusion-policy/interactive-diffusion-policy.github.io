@@ -13,8 +13,8 @@
   <title>Interactive Diffusion Policy: Safe Reactive Avoidance through Proximity Sensing in Human-Robot Shared Environments</title>
   <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;600&family=Noto+Sans:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
-  <link rel="icon" href="icon.svg" type="image/svg+xml"><link rel="stylesheet" href="style.css?v=588ec781e958">
-  <script defer src="catalog.js?v=fbb20748e6c3"></script><script defer src="app.js?v=4a26347ea257"></script>
+  <link rel="icon" href="icon.svg" type="image/svg+xml"><link rel="stylesheet" href="style.css?v=343ebd8b3354">
+  <script defer src="catalog.js?v=fbb20748e6c3"></script><script defer src="app.js?v=c54d50a7e0e3"></script>
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
@@ -67,7 +67,7 @@
   </div>
   <figure class="paper-figure overview-figure" data-feature="paper-overview">
     <button class="figure-open" type="button" aria-label="Enlarge execution, avoidance, and recovery overview"><img alt="Task execution, RMPflow avoidance, and LPB distribution recovery" loading="lazy"></button>
-    <figcaption><strong>Figure 1:</strong> Task execution, proximity-driven avoidance, and LPB-guided recovery.</figcaption>
+    <figcaption>Diffusion Policy executes the pick-and-place task. When an obstacle approaches, RMPflow uses the proximity sensors to steer the arm away, which can leave the robot out of distribution (OOD). LPB then guides it back toward the demonstrated states so the task can resume.</figcaption>
   </figure>
 </div></section>
 
@@ -80,7 +80,7 @@
   </div>
   <figure class="paper-figure" data-feature="paper-framework">
     <button class="figure-open" type="button" aria-label="Enlarge integrated IDP architecture"><img alt="IDP architecture and recovery dynamics training" loading="lazy"></button>
-    <figcaption><strong>Figure 5:</strong> IDP architecture and action-conditioned dynamics training.</figcaption>
+    <figcaption>Diffusion Policy turns camera images and proprioception into a chunk of reference targets. RMPflow tracks them while its collision term uses proximity distances to keep the arm away from obstacles. When the latent OOD cost exceeds its threshold, LPB steers the action chunk so that its predicted latent state returns toward the nearest expert state. The inset shows the dynamics-model training: rollouts that combine the policy's own actions with human guidance cover the off-path states that avoidance produces.</figcaption>
   </figure>
 </div></section>
 
@@ -94,18 +94,18 @@
     <details class="analysis-disclosure"><summary>View the sensor comparison figure</summary>
       <figure class="paper-figure sensor-comparison" data-feature="paper-sensor-comparison">
         <button class="figure-open" type="button" aria-label="Enlarge depth camera versus proximity sensing comparison"><img alt="Avoidance with a visible obstacle, robot-induced camera occlusion, and transparent glass" loading="lazy"></button>
-        <figcaption><strong>Figure 4:</strong> Both inputs support avoidance in clear view. Only proximity-based control avoids the obstacle in the shown occlusion and glass trials.</figcaption>
+        <figcaption>The same RMPflow controller receives obstacle information either from a depth camera (middle column) or from the robot-mounted proximity sensors (right column); the left column shows the depth image. With a clear view (top row), both avoid the suddenly appearing obstacle. When the robot itself hides the obstacle from the camera (middle row) or the obstacle is transparent glass (bottom row), camera-based control collides, while proximity-based control still detects and avoids it.</figcaption>
       </figure>
     </details>
   </div>
   <div class="figure-pair sensor-hardware">
     <figure class="paper-figure" data-feature="paper-sensor-module">
       <button class="figure-open" type="button" aria-label="Enlarge RB10 sensor module"><img alt="RB10 sensor placement and exploded capacitive and ToF module" loading="lazy"></button>
-      <figcaption><strong>Figure 2:</strong> Link-mounted capacitive and ToF modules on the RB10.</figcaption>
+      <figcaption>Proximity sensor modules mounted on the RB10 links, with an exploded view of one module. Each module combines a capacitive sensing PCB, which detects nearby people and objects through changes in the electric field, with a ToF sensor that provides reference distances for calibrating the capacitive estimate.</figcaption>
     </figure>
     <figure class="paper-figure" data-feature="paper-sensor-calibration">
       <button class="figure-open" type="button" aria-label="Enlarge distance estimation experiment"><img alt="Moving metal specimen, reference distance, sensor estimate, and error" loading="lazy"></button>
-      <figcaption><strong>Figure 3:</strong> Approximately ±20 mm distance error in the metal-specimen jig test.</figcaption>
+      <figcaption>A test jig repeatedly moves a metal specimen toward and away from the sensor. The sensor's distance estimate (red) follows the reference distance (black dashed) through each approach and retreat, with an error of about ±20 mm (blue).</figcaption>
     </figure>
   </div>
   <p class="method-explanation">ToF provides calibration references; joint-dependent compensation reduces self-detection.</p>
@@ -115,7 +115,7 @@
   </details>
   <figure class="collection-film sensor-response">
     <div class="media-frame"><video controls muted playsinline preload="none" data-video="sensor-reactive-avoidance" aria-label="Proximity-driven RB10 obstacle avoidance"></video></div>
-    <figcaption>Local avoidance at different points along the arm.</figcaption>
+    <figcaption>An obstacle on a pole approaches different points along the arm. The link-mounted proximity sensors detect it, and the arm moves locally away from the side it approaches.</figcaption>
   </figure>
   <details class="analysis-disclosure"><summary>Watch close-proximity interactions</summary><div id="proximity-videos"></div></details>
 </div></section>
@@ -130,7 +130,7 @@
   </ol>
   <figure class="paper-figure collection-figure" data-feature="paper-collection">
     <button class="figure-open" type="button" aria-label="Enlarge recovery-aware collection example"><img alt="Policy rollout, RMPflow avoidance, human guidance, and TCP trajectory" loading="lazy"></button>
-    <figcaption><strong>Figure 7:</strong> RMPflow deflection followed by human-guided correction during data collection.</figcaption>
+    <figcaption>While an intermediate policy checkpoint performs the task, an approaching obstacle triggers RMPflow avoidance (left). If the policy cannot resume from the resulting off-path state, an operator guides the robot back to the task (right). The plot traces the end-effector path through policy rollout (grey), avoidance (red), and human guidance (blue); the whole rollout is recorded to train the LPB dynamics model.</figcaption>
   </figure>
   <div class="data-roles">
     <p><strong>100 expert demonstrations</strong> train the base policy and supply latent references and dynamics samples.</p>
@@ -138,7 +138,7 @@
   </div>
   <figure class="collection-film">
     <div class="media-frame"><video controls playsinline preload="none" data-video="idp-recovery-collection" aria-label="Avoidance and human-guided collection rollout"></video></div>
-    <figcaption>Human-assisted data collection with measured end-effector motion.</figcaption>
+    <figcaption>A recovery-collection rollout at 2× speed: the policy runs the task, RMPflow deflects the arm away from an approaching obstacle, and the operator guides it back until the policy continues on its own. The plot on the right traces the measured end-effector path for each phase.</figcaption>
   </figure>
 </div></section>
 
@@ -147,13 +147,13 @@
   <p class="section-lead">Wide-range pick-and-place on a Rainbow Robotics RB10.</p>
   <figure class="paper-figure setup-figure" data-feature="paper-setup">
     <button class="figure-open" type="button" aria-label="Enlarge experimental setup"><img alt="RB10 pick-and-place workspace with vision cameras and proximity sensors" loading="lazy"></button>
-    <figcaption><strong>Figure 6:</strong> Pick-and-place workspace and sensor placement.</figcaption>
+    <figcaption>The RB10 picks an object from the table on the right and places it in the box on the left, a wide-range motion across the workspace. Vision sensors on the wrist and at the workspace give the policy its RGB observations, and the proximity sensors on the arm links detect obstacles.</figcaption>
   </figure>
   <div class="subsection">
     <h3 class="subhead">Recovery dataset ablation</h3>
     <p class="section-lead">We compare recovery mechanisms within the same IDP architecture.</p>
     <div class="results">
-      <p id="table1-caption" class="table-caption"><strong>Table I:</strong> Task completion from eight post-avoidance poses (10 trials per pose, 80 per condition).</p>
+      <p id="table1-caption" class="table-caption">Task completion from eight post-avoidance poses (10 trials per pose, 80 per condition).</p>
       <div class="table-scroll"><table aria-describedby="table1-caption">
         <caption class="sr-only">Task success for No Guidance, rollout-trained LPB, and Recovery-aware LPB</caption>
         <thead><tr><th scope="col">Condition</th><th scope="col">Recovery mechanism</th><th scope="col" class="num">Task success</th></tr></thead>
@@ -174,14 +174,14 @@
     </details>
     <figure class="paper-figure" data-feature="paper-obstacle-paths">
       <button class="figure-open" type="button" aria-label="Enlarge dynamic-obstacle trajectory comparison"><img alt="DP plus Stop, DP plus RMPflow, and IDP under DGB and SAO" loading="lazy"></button>
-      <figcaption><strong>Figure 9:</strong> In these examples, DP + Stop halts, DP + RMPflow avoids without resuming, and IDP completes the task.</figcaption>
+      <figcaption>End-effector trajectories under dynamic global blocking (DGB, top row) and a suddenly appearing obstacle (SAO, bottom row). DP + Stop keeps clear of the obstacle but stays frozen until the episode times out. DP + RMPflow avoids it, but from the off-path state it strikes the workspace under DGB and drops the grasped object under SAO. IDP (Ours) avoids the obstacle and completes the task in both cases.</figcaption>
     </figure>
   </div>
   <div class="subsection">
     <h3 class="subhead">Avoidance and recovery within a rollout</h3>
     <figure class="paper-figure" data-feature="paper-ood-events">
       <button class="figure-open" type="button" aria-label="Enlarge avoidance and latent cost timeline"><img alt="Four avoidance events, wrist observations, expert reference images, and OOD cost" loading="lazy"></button>
-      <figcaption><strong>Figure 10:</strong> Wrist observations, nearest expert images, and latent OOD cost with the LPB threshold across four avoidance events.</figcaption>
+      <figcaption>Latent OOD cost over a single IDP pick-and-place rollout with four avoidance events. Each RMPflow avoidance pushes the cost above the LPB threshold (dashed red line); LPB guidance then drives it back down, and the task continues until the next intrusion. Above the plot, each event pairs the current wrist-camera view with its nearest image in the expert demonstrations.</figcaption>
     </figure>
     <details class="analysis-disclosure"><summary>Inspect the observation and guidance timeline</summary><div id="featured-videos" class="video-grid single"></div></details>
   </div>
